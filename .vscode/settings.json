@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "basic.h": "c",
+        "test_array_stack.h": "c",
+        "bcunit.h": "c"
+    }
+}
