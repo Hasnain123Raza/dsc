@@ -11,3 +11,9 @@ The project builds and installs a static library and its headers that contain al
 Run `make` to make the project. This should generate the `libdsc.a` file in your build directory. To run the unit tests please ensure that you have already installed `bcunit` headers and library. After that run `make check`.
 
 To install the library, run `make install` and to uninstall run `make uninstall`. Please note you might need sudo permissions to install and uninstall. After installation, you can use this library in your own C programs by including the headers and linking the library.
+
+## Links
+
+Doxygen: https://hasnain123raza.github.io/dsc/
+
+Github: https://github.com/Hasnain123Raza/dsc
