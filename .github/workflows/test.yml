@@ -15,8 +15,14 @@ jobs:
 
       - name: Install bcunit
         run: |
+          sudo apt install autoconf automake libtool
           git clone https://github.com/BelledonneCommunications/bcunit.git
-          cd bcunit && ./configure && make && sudo make install
+          cd bcunit
+          ln -s README.md README
+          ./autogen.sh
+          ./configure
+          make
+          sudo make install
 
       - name: Prepare build
         run: mkdir build && cd build && ../configure
