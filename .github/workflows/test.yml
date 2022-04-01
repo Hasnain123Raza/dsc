@@ -16,7 +16,7 @@ jobs:
       - name: Install bcunit
         run: |
           git clone https://github.com/BelledonneCommunications/bcunit.git
-          cd bcunit ./configure && make && sudo make install
+          cd bcunit && ./configure && make && sudo make install
 
       - name: Prepare build
         run: mkdir build && cd build && ../configure
