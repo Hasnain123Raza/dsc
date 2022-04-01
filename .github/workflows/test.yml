@@ -15,7 +15,6 @@ jobs:
 
       - name: Install bcunit
         run: |
-          sudo apt install autoconf automake libtool
           git clone https://github.com/BelledonneCommunications/bcunit.git
           cd bcunit
           ln -s README.md README
@@ -28,4 +27,4 @@ jobs:
         run: mkdir build && cd build && ../configure
 
       - name: Run test
-        run: cd build && make check && make distcheck
+        run: LD_LIBRARY_PATH=/usr/local/lib; export LD_LIBRARY_PATH; cd build && make check && make distcheck
