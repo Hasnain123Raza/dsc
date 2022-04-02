@@ -28,9 +28,66 @@ CU_ErrorCode prepare_suite_array_stack() {
 
 
 
-void test_array_stack_create(void);
-void test_array_stack_free(void);
-void test_array_stack_resize(void);
-void test_array_stack_push(void);
-void test_array_stack_pop(void);
-void test_array_stack_peek(void);
+void test_array_stack_create(void) {
+
+}
+
+void test_array_stack_free(void) {
+
+}
+
+void test_array_stack_resize(void) {
+    
+}
+
+void test_array_stack_push(void) {
+    int test_data[] = {0, 1, 2, 3, 4};
+
+    dsc_array_stack_t *stack = dsc_array_stack_create(0, NULL);
+    CU_ASSERT_PTR_NOT_NULL_FATAL(stack);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 1), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 2), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 3), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 4), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, NULL), -1);
+    CU_ASSERT_EQUAL(stack->data[0], test_data + 0);
+    CU_ASSERT_EQUAL(stack->data[1], test_data + 1);
+    CU_ASSERT_EQUAL(stack->data[2], test_data + 2);
+    CU_ASSERT_EQUAL(stack->data[3], test_data + 3);
+    CU_ASSERT_EQUAL(stack->data[4], test_data + 4);
+    dsc_array_stack_free(stack);
+}
+
+void test_array_stack_pop(void) {
+    int test_data[] = {0, 1, 2, 3, 4};
+
+    dsc_array_stack_t *stack = dsc_array_stack_create(0, NULL);
+    CU_ASSERT_PTR_NOT_NULL_FATAL(stack);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 1), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 2), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 3), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 4), 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_pop(stack), test_data + 4);
+    CU_ASSERT_EQUAL(stack->data[0], test_data + 0);
+    CU_ASSERT_EQUAL(stack->data[1], test_data + 1);
+    CU_ASSERT_EQUAL(stack->data[2], test_data + 2);
+    CU_ASSERT_EQUAL(stack->data[3], test_data + 3);
+    CU_ASSERT_EQUAL(dsc_array_stack_pop(stack), test_data + 3);
+    CU_ASSERT_EQUAL(stack->data[0], test_data + 0);
+    CU_ASSERT_EQUAL(stack->data[1], test_data + 1);
+    CU_ASSERT_EQUAL(stack->data[2], test_data + 2);
+    CU_ASSERT_EQUAL(dsc_array_stack_pop(stack), test_data + 2);
+    CU_ASSERT_EQUAL(stack->data[0], test_data + 0);
+    CU_ASSERT_EQUAL(stack->data[1], test_data + 1);
+    CU_ASSERT_EQUAL(dsc_array_stack_pop(stack), test_data + 1);
+    CU_ASSERT_EQUAL(stack->data[0], test_data + 0);
+    CU_ASSERT_EQUAL(dsc_array_stack_pop(stack), test_data + 0);
+    CU_ASSERT_PTR_NULL(dsc_array_stack_pop(stack));
+    dsc_array_stack_free(stack);
+}
+
+void test_array_stack_peek(void) {
+
+}

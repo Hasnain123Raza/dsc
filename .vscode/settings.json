@@ -2,6 +2,9 @@
     "files.associations": {
         "basic.h": "c",
         "test_array_stack.h": "c",
-        "bcunit.h": "c"
+        "bcunit.h": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c"
     }
 }
