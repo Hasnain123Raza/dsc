@@ -140,11 +140,15 @@ libdsc_a_AR = $(AR) $(ARFLAGS)
 libdsc_a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am_libdsc_a_OBJECTS = src/list/libdsc_a-dynamic_list.$(OBJEXT) \
-	src/list/libdsc_a-singly_linked_list.$(OBJEXT)
+	src/list/libdsc_a-singly_linked_list.$(OBJEXT) \
+	src/stack/libdsc_a-array_stack.$(OBJEXT) \
+	src/stack/libdsc_a-linked_stack.$(OBJEXT)
 libdsc_a_OBJECTS = $(am_libdsc_a_OBJECTS)
 am_test_driver_OBJECTS = test/driver-driver.$(OBJEXT) \
 	test/list/driver-test_dynamic_list.$(OBJEXT) \
-	test/list/driver-test_singly_linked_list.$(OBJEXT)
+	test/list/driver-test_singly_linked_list.$(OBJEXT) \
+	test/stack/driver-test_array_stack.$(OBJEXT) \
+	test/stack/driver-test_linked_stack.$(OBJEXT)
 test_driver_OBJECTS = $(am_test_driver_OBJECTS)
 test_driver_DEPENDENCIES = libdsc.a
 AM_V_P = $(am__v_P_@AM_V@)
@@ -164,9 +168,13 @@ depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__maybe_remake_depfiles = depfiles
 am__depfiles_remade = src/list/$(DEPDIR)/libdsc_a-dynamic_list.Po \
 	src/list/$(DEPDIR)/libdsc_a-singly_linked_list.Po \
+	src/stack/$(DEPDIR)/libdsc_a-array_stack.Po \
+	src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po \
 	test/$(DEPDIR)/driver-driver.Po \
 	test/list/$(DEPDIR)/driver-test_dynamic_list.Po \
-	test/list/$(DEPDIR)/driver-test_singly_linked_list.Po
+	test/list/$(DEPDIR)/driver-test_singly_linked_list.Po \
+	test/stack/$(DEPDIR)/driver-test_array_stack.Po \
+	test/stack/$(DEPDIR)/driver-test_linked_stack.Po
 am__mv = mv -f
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -508,9 +516,9 @@ top_srcdir = @top_srcdir@
 include_HEADERS = \
     include/list/dynamic_list.h \
     include/list/singly_linked_list.h \
-    #include/stack/array_stack.h \
+    include/stack/array_stack.h \
     include/stack/linked_stack.h \
-    include/queue/array_queue.h \
+    #include/queue/array_queue.h \
     include/queue/linked_queue.h
 
 lib_LIBRARIES = libdsc.a
@@ -522,9 +530,9 @@ libdsc_a_CPPFLAGS = \
 libdsc_a_SOURCES = \
     src/list/dynamic_list.c \
     src/list/singly_linked_list.c \
-    #src/stack/array_stack.c \
+    src/stack/array_stack.c \
     src/stack/linked_stack.c \
-    src/queue/array_queue.c \
+    #src/queue/array_queue.c \
     src/queue/linked_queue.c
 
 test_driver_SOURCES = test/driver.c \
@@ -532,11 +540,11 @@ test_driver_SOURCES = test/driver.c \
     test/list/test_dynamic_list.c \
     test/list/test_singly_linked_list.h \
     test/list/test_singly_linked_list.c \
-    #test/stack/test_array_stack.h \
+    test/stack/test_array_stack.h \
     test/stack/test_array_stack.c \
     test/stack/test_linked_stack.h \
     test/stack/test_linked_stack.c \
-    test/queue/test_array_queue.h \
+    #test/queue/test_array_queue.h \
     test/queue/test_array_queue.c \
     test/queue/test_linked_queue.h \
     test/queue/test_linked_queue.c
@@ -648,6 +656,16 @@ src/list/libdsc_a-dynamic_list.$(OBJEXT): src/list/$(am__dirstamp) \
 	src/list/$(DEPDIR)/$(am__dirstamp)
 src/list/libdsc_a-singly_linked_list.$(OBJEXT):  \
 	src/list/$(am__dirstamp) src/list/$(DEPDIR)/$(am__dirstamp)
+src/stack/$(am__dirstamp):
+	@$(MKDIR_P) src/stack
+	@: > src/stack/$(am__dirstamp)
+src/stack/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) src/stack/$(DEPDIR)
+	@: > src/stack/$(DEPDIR)/$(am__dirstamp)
+src/stack/libdsc_a-array_stack.$(OBJEXT): src/stack/$(am__dirstamp) \
+	src/stack/$(DEPDIR)/$(am__dirstamp)
+src/stack/libdsc_a-linked_stack.$(OBJEXT): src/stack/$(am__dirstamp) \
+	src/stack/$(DEPDIR)/$(am__dirstamp)
 
 libdsc.a: $(libdsc_a_OBJECTS) $(libdsc_a_DEPENDENCIES) $(EXTRA_libdsc_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libdsc.a
@@ -671,6 +689,18 @@ test/list/driver-test_dynamic_list.$(OBJEXT):  \
 	test/list/$(am__dirstamp) test/list/$(DEPDIR)/$(am__dirstamp)
 test/list/driver-test_singly_linked_list.$(OBJEXT):  \
 	test/list/$(am__dirstamp) test/list/$(DEPDIR)/$(am__dirstamp)
+test/stack/$(am__dirstamp):
+	@$(MKDIR_P) test/stack
+	@: > test/stack/$(am__dirstamp)
+test/stack/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) test/stack/$(DEPDIR)
+	@: > test/stack/$(DEPDIR)/$(am__dirstamp)
+test/stack/driver-test_array_stack.$(OBJEXT):  \
+	test/stack/$(am__dirstamp) \
+	test/stack/$(DEPDIR)/$(am__dirstamp)
+test/stack/driver-test_linked_stack.$(OBJEXT):  \
+	test/stack/$(am__dirstamp) \
+	test/stack/$(DEPDIR)/$(am__dirstamp)
 
 test/driver$(EXEEXT): $(test_driver_OBJECTS) $(test_driver_DEPENDENCIES) $(EXTRA_test_driver_DEPENDENCIES) test/$(am__dirstamp)
 	@rm -f test/driver$(EXEEXT)
@@ -679,17 +709,23 @@ test/driver$(EXEEXT): $(test_driver_OBJECTS) $(test_driver_DEPENDENCIES) $(EXTRA
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f src/list/*.$(OBJEXT)
+	-rm -f src/stack/*.$(OBJEXT)
 	-rm -f test/*.$(OBJEXT)
 	-rm -f test/list/*.$(OBJEXT)
+	-rm -f test/stack/*.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@src/list/$(DEPDIR)/libdsc_a-dynamic_list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/list/$(DEPDIR)/libdsc_a-singly_linked_list.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/stack/$(DEPDIR)/libdsc_a-array_stack.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@test/$(DEPDIR)/driver-driver.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@test/list/$(DEPDIR)/driver-test_dynamic_list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@test/list/$(DEPDIR)/driver-test_singly_linked_list.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@test/stack/$(DEPDIR)/driver-test_array_stack.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@test/stack/$(DEPDIR)/driver-test_linked_stack.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -741,6 +777,34 @@ src/list/libdsc_a-singly_linked_list.obj: src/list/singly_linked_list.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/list/libdsc_a-singly_linked_list.obj `if test -f 'src/list/singly_linked_list.c'; then $(CYGPATH_W) 'src/list/singly_linked_list.c'; else $(CYGPATH_W) '$(srcdir)/src/list/singly_linked_list.c'; fi`
 
+src/stack/libdsc_a-array_stack.o: src/stack/array_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/stack/libdsc_a-array_stack.o -MD -MP -MF src/stack/$(DEPDIR)/libdsc_a-array_stack.Tpo -c -o src/stack/libdsc_a-array_stack.o `test -f 'src/stack/array_stack.c' || echo '$(srcdir)/'`src/stack/array_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/stack/$(DEPDIR)/libdsc_a-array_stack.Tpo src/stack/$(DEPDIR)/libdsc_a-array_stack.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/stack/array_stack.c' object='src/stack/libdsc_a-array_stack.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/stack/libdsc_a-array_stack.o `test -f 'src/stack/array_stack.c' || echo '$(srcdir)/'`src/stack/array_stack.c
+
+src/stack/libdsc_a-array_stack.obj: src/stack/array_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/stack/libdsc_a-array_stack.obj -MD -MP -MF src/stack/$(DEPDIR)/libdsc_a-array_stack.Tpo -c -o src/stack/libdsc_a-array_stack.obj `if test -f 'src/stack/array_stack.c'; then $(CYGPATH_W) 'src/stack/array_stack.c'; else $(CYGPATH_W) '$(srcdir)/src/stack/array_stack.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/stack/$(DEPDIR)/libdsc_a-array_stack.Tpo src/stack/$(DEPDIR)/libdsc_a-array_stack.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/stack/array_stack.c' object='src/stack/libdsc_a-array_stack.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/stack/libdsc_a-array_stack.obj `if test -f 'src/stack/array_stack.c'; then $(CYGPATH_W) 'src/stack/array_stack.c'; else $(CYGPATH_W) '$(srcdir)/src/stack/array_stack.c'; fi`
+
+src/stack/libdsc_a-linked_stack.o: src/stack/linked_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/stack/libdsc_a-linked_stack.o -MD -MP -MF src/stack/$(DEPDIR)/libdsc_a-linked_stack.Tpo -c -o src/stack/libdsc_a-linked_stack.o `test -f 'src/stack/linked_stack.c' || echo '$(srcdir)/'`src/stack/linked_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/stack/$(DEPDIR)/libdsc_a-linked_stack.Tpo src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/stack/linked_stack.c' object='src/stack/libdsc_a-linked_stack.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/stack/libdsc_a-linked_stack.o `test -f 'src/stack/linked_stack.c' || echo '$(srcdir)/'`src/stack/linked_stack.c
+
+src/stack/libdsc_a-linked_stack.obj: src/stack/linked_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/stack/libdsc_a-linked_stack.obj -MD -MP -MF src/stack/$(DEPDIR)/libdsc_a-linked_stack.Tpo -c -o src/stack/libdsc_a-linked_stack.obj `if test -f 'src/stack/linked_stack.c'; then $(CYGPATH_W) 'src/stack/linked_stack.c'; else $(CYGPATH_W) '$(srcdir)/src/stack/linked_stack.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/stack/$(DEPDIR)/libdsc_a-linked_stack.Tpo src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/stack/linked_stack.c' object='src/stack/libdsc_a-linked_stack.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/stack/libdsc_a-linked_stack.obj `if test -f 'src/stack/linked_stack.c'; then $(CYGPATH_W) 'src/stack/linked_stack.c'; else $(CYGPATH_W) '$(srcdir)/src/stack/linked_stack.c'; fi`
+
 test/driver-driver.o: test/driver.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/driver-driver.o -MD -MP -MF test/$(DEPDIR)/driver-driver.Tpo -c -o test/driver-driver.o `test -f 'test/driver.c' || echo '$(srcdir)/'`test/driver.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/$(DEPDIR)/driver-driver.Tpo test/$(DEPDIR)/driver-driver.Po
@@ -782,6 +846,34 @@ test/list/driver-test_singly_linked_list.obj: test/list/test_singly_linked_list.
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/list/test_singly_linked_list.c' object='test/list/driver-test_singly_linked_list.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/list/driver-test_singly_linked_list.obj `if test -f 'test/list/test_singly_linked_list.c'; then $(CYGPATH_W) 'test/list/test_singly_linked_list.c'; else $(CYGPATH_W) '$(srcdir)/test/list/test_singly_linked_list.c'; fi`
+
+test/stack/driver-test_array_stack.o: test/stack/test_array_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/stack/driver-test_array_stack.o -MD -MP -MF test/stack/$(DEPDIR)/driver-test_array_stack.Tpo -c -o test/stack/driver-test_array_stack.o `test -f 'test/stack/test_array_stack.c' || echo '$(srcdir)/'`test/stack/test_array_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/stack/$(DEPDIR)/driver-test_array_stack.Tpo test/stack/$(DEPDIR)/driver-test_array_stack.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/stack/test_array_stack.c' object='test/stack/driver-test_array_stack.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/stack/driver-test_array_stack.o `test -f 'test/stack/test_array_stack.c' || echo '$(srcdir)/'`test/stack/test_array_stack.c
+
+test/stack/driver-test_array_stack.obj: test/stack/test_array_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/stack/driver-test_array_stack.obj -MD -MP -MF test/stack/$(DEPDIR)/driver-test_array_stack.Tpo -c -o test/stack/driver-test_array_stack.obj `if test -f 'test/stack/test_array_stack.c'; then $(CYGPATH_W) 'test/stack/test_array_stack.c'; else $(CYGPATH_W) '$(srcdir)/test/stack/test_array_stack.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/stack/$(DEPDIR)/driver-test_array_stack.Tpo test/stack/$(DEPDIR)/driver-test_array_stack.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/stack/test_array_stack.c' object='test/stack/driver-test_array_stack.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/stack/driver-test_array_stack.obj `if test -f 'test/stack/test_array_stack.c'; then $(CYGPATH_W) 'test/stack/test_array_stack.c'; else $(CYGPATH_W) '$(srcdir)/test/stack/test_array_stack.c'; fi`
+
+test/stack/driver-test_linked_stack.o: test/stack/test_linked_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/stack/driver-test_linked_stack.o -MD -MP -MF test/stack/$(DEPDIR)/driver-test_linked_stack.Tpo -c -o test/stack/driver-test_linked_stack.o `test -f 'test/stack/test_linked_stack.c' || echo '$(srcdir)/'`test/stack/test_linked_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/stack/$(DEPDIR)/driver-test_linked_stack.Tpo test/stack/$(DEPDIR)/driver-test_linked_stack.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/stack/test_linked_stack.c' object='test/stack/driver-test_linked_stack.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/stack/driver-test_linked_stack.o `test -f 'test/stack/test_linked_stack.c' || echo '$(srcdir)/'`test/stack/test_linked_stack.c
+
+test/stack/driver-test_linked_stack.obj: test/stack/test_linked_stack.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/stack/driver-test_linked_stack.obj -MD -MP -MF test/stack/$(DEPDIR)/driver-test_linked_stack.Tpo -c -o test/stack/driver-test_linked_stack.obj `if test -f 'test/stack/test_linked_stack.c'; then $(CYGPATH_W) 'test/stack/test_linked_stack.c'; else $(CYGPATH_W) '$(srcdir)/test/stack/test_linked_stack.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/stack/$(DEPDIR)/driver-test_linked_stack.Tpo test/stack/$(DEPDIR)/driver-test_linked_stack.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/stack/test_linked_stack.c' object='test/stack/driver-test_linked_stack.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/stack/driver-test_linked_stack.obj `if test -f 'test/stack/test_linked_stack.c'; then $(CYGPATH_W) 'test/stack/test_linked_stack.c'; else $(CYGPATH_W) '$(srcdir)/test/stack/test_linked_stack.c'; fi`
 install-includeHEADERS: $(include_HEADERS)
 	@$(NORMAL_INSTALL)
 	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
@@ -1237,10 +1329,14 @@ distclean-generic:
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
 	-rm -f src/list/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/list/$(am__dirstamp)
+	-rm -f src/stack/$(DEPDIR)/$(am__dirstamp)
+	-rm -f src/stack/$(am__dirstamp)
 	-rm -f test/$(DEPDIR)/$(am__dirstamp)
 	-rm -f test/$(am__dirstamp)
 	-rm -f test/list/$(DEPDIR)/$(am__dirstamp)
 	-rm -f test/list/$(am__dirstamp)
+	-rm -f test/stack/$(DEPDIR)/$(am__dirstamp)
+	-rm -f test/stack/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -1254,9 +1350,13 @@ distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 		-rm -f src/list/$(DEPDIR)/libdsc_a-dynamic_list.Po
 	-rm -f src/list/$(DEPDIR)/libdsc_a-singly_linked_list.Po
+	-rm -f src/stack/$(DEPDIR)/libdsc_a-array_stack.Po
+	-rm -f src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po
 	-rm -f test/$(DEPDIR)/driver-driver.Po
 	-rm -f test/list/$(DEPDIR)/driver-test_dynamic_list.Po
 	-rm -f test/list/$(DEPDIR)/driver-test_singly_linked_list.Po
+	-rm -f test/stack/$(DEPDIR)/driver-test_array_stack.Po
+	-rm -f test/stack/$(DEPDIR)/driver-test_linked_stack.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-tags
@@ -1306,9 +1406,13 @@ maintainer-clean: maintainer-clean-am
 	-rm -rf $(top_srcdir)/autom4te.cache
 		-rm -f src/list/$(DEPDIR)/libdsc_a-dynamic_list.Po
 	-rm -f src/list/$(DEPDIR)/libdsc_a-singly_linked_list.Po
+	-rm -f src/stack/$(DEPDIR)/libdsc_a-array_stack.Po
+	-rm -f src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po
 	-rm -f test/$(DEPDIR)/driver-driver.Po
 	-rm -f test/list/$(DEPDIR)/driver-test_dynamic_list.Po
 	-rm -f test/list/$(DEPDIR)/driver-test_singly_linked_list.Po
+	-rm -f test/stack/$(DEPDIR)/driver-test_array_stack.Po
+	-rm -f test/stack/$(DEPDIR)/driver-test_linked_stack.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

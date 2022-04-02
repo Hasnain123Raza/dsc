@@ -79,8 +79,8 @@ void test_linked_stack_pop(void) {
     CU_ASSERT_EQUAL(dsc_linked_stack_pop(stack), test_data + 1);
     CU_ASSERT_EQUAL(stack->head->data, test_data + 0);
     CU_ASSERT_EQUAL(dsc_linked_stack_pop(stack), test_data + 0);
-    CU_ASSERT_EQUAL(stack->head->data, NULL);
-    CU_ASSERT_EQUAL(dsc_linked_stack_pop(stack), -1);
+    CU_ASSERT_EQUAL(stack->head, NULL);
+    CU_ASSERT_EQUAL(dsc_linked_stack_pop(stack), NULL);
     dsc_linked_stack_free(stack);
 }
 

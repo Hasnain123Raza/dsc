@@ -4,8 +4,8 @@
 
 #include "test_dynamic_list.h"
 #include "test_singly_linked_list.h"
-// #include "test_array_stack.h"
-// #include "test_linked_stack.h"
+#include "test_array_stack.h"
+#include "test_linked_stack.h"
 // #include "test_array_queue.h"
 // #include "test_linked_queue.h"
 
@@ -20,9 +20,9 @@ int main(int argc, char* argv[]) {
     }
 
     if ((prepare_suite_dynamic_list() != CUE_SUCCESS) ||
-        (prepare_suite_singly_linked_list() != CUE_SUCCESS) // ||
-        // (prepare_suite_array_stack() != CUE_SUCCESS) ||
-        // (prepare_suite_linked_stack() != CUE_SUCCESS) ||
+        (prepare_suite_singly_linked_list() != CUE_SUCCESS) ||
+        (prepare_suite_array_stack() != CUE_SUCCESS) ||
+        (prepare_suite_linked_stack() != CUE_SUCCESS) // ||
         // (prepare_suite_array_queue() != CUE_SUCCESS) ||
         // (prepare_suite_linked_queue() != CUE_SUCCESS)
         ) {
