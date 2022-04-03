@@ -68,7 +68,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">array_stack.h File Reference</div></div>
@@ -81,11 +80,6 @@ $(function() {
 </div>
 <p><a href="array__stack_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ae970be379b0d3af1e4fcbafeb4d8dfd4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array__stack_8h.html#ae970be379b0d3af1e4fcbafeb4d8dfd4">DSC_ARRAY_STACK_INITIAL_CAPACITY</a>&#160;&#160;&#160;16</td></tr>
-<tr class="separator:ae970be379b0d3af1e4fcbafeb4d8dfd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a63c8fd2da091d541ede77931719cdef9"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array__stack_8h.html#a63c8fd2da091d541ede77931719cdef9">dsc_array_stack_free_func</a>) (void *)</td></tr>
@@ -118,23 +112,7 @@ Functions</h2></td></tr>
 <div class="textblock"><p >Array stack. </p>
 <p >This file contains the array stack. It is an array that can grow and shrink when needed. Push and pop operations are O(1).</p>
 <dl class="section author"><dt>Author</dt><dd>Hasnain Raza </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae970be379b0d3af1e4fcbafeb4d8dfd4" name="ae970be379b0d3af1e4fcbafeb4d8dfd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae970be379b0d3af1e4fcbafeb4d8dfd4">&#9670;&nbsp;</a></span>DSC_ARRAY_STACK_INITIAL_CAPACITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DSC_ARRAY_STACK_INITIAL_CAPACITY&#160;&#160;&#160;16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Initial capacity of the stack </p>
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a63c8fd2da091d541ede77931719cdef9" name="a63c8fd2da091d541ede77931719cdef9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63c8fd2da091d541ede77931719cdef9">&#9670;&nbsp;</a></span>dsc_array_stack_free_func</h2>
 
@@ -193,10 +171,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize the array stack. </p>
-<p >This function initializes the array stack. Capacity can't be less than DSC_ARRAY_STACK_INITIAL_CAPACITY. If the capacity is less than DSC_ARRAY_STACK_INITIAL_CAPACITY, it is set to DSC_ARRAY_STACK_INITIAL_CAPACITY. If the free_func is NULL, the data is not freed. If allocation fails, the function returns NULL.</p>
+<p >This function initializes the array stack. Capacity can't be less than DSC_DYNAMIC_LIST_INITIAL_CAPACITY. If the capacity is less than DSC_DYNAMIC_LIST_INITIAL_CAPACITY, it is set to DSC_DYNAMIC_LIST_INITIAL_CAPACITY. If the free_func is NULL, the data is not freed. If allocation fails, the function returns NULL.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">capacity</td><td>Initial capacity of the stack, can not be less than DSC_ARRAY_STACK_INITIAL_CAPACITY </td></tr>
+    <tr><td class="paramname">capacity</td><td>Initial capacity of the stack </td></tr>
     <tr><td class="paramname">free_func</td><td>Function pointer to free the data </td></tr>
   </table>
   </dd>
@@ -354,7 +332,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Resizes the array stack. </p>
-<p >This function resizes the array stack. If the new capacity is less than the current size of the stack, the stack is not modified and the function returns -1. If the new capacity is greater than the current capacity, the stack is resized and the function returns 0. If allocation fails, the function returns -1 and the stack is not modified.</p>
+<p >This function resizes the array stack. If the new capacity is less than the current size of the stack, the stack is not modified and the function returns -1. If the new capacity is greater than the current capacity, the stack is resized and the function returns 0. If the new capacity is less than DSC_DYNAMIC_LIST_INITIAL_CAPACITY, the stack is resized to DSC_DYNAMIC_LIST_INITIAL_CAPACITY and the function returns 0. If the allocation fails, the function returns -1 and the stack is not modified.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">array_stack</td><td>Pointer to the array stack, can not be NULL </td></tr>
