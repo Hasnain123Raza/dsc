@@ -1,5 +1,5 @@
-#ifndef TEST_SINGLY_LINKED_LIST_H
-#define TEST_SINGLY_LINKED_LIST_H
+#ifndef TEST_DSC_SINGLY_LINKED_LIST_H
+#define TEST_DSC_SINGLY_LINKED_LIST_H
 
 #include <BCUnit/BCUnit.h>
 #include <BCUnit/Basic.h>

@@ -1,5 +1,5 @@
-#ifndef ARRAY_QUEUE_H
-#define ARRAY_QUEUE_H
+#ifndef DSC_ARRAY_QUEUE_H
+#define DSC_ARRAY_QUEUE_H
 
 #include "dynamic_list.h"
 

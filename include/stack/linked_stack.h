@@ -1,5 +1,5 @@
-#ifndef LINKED_STACK_H
-#define LINKED_STACK_H
+#ifndef DSC_LINKED_STACK_H
+#define DSC_LINKED_STACK_H
 
 #include "singly_linked_list.h"
 

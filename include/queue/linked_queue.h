@@ -1,5 +1,5 @@
-#ifndef LINKED_QUEUE_H
-#define LINKED_QUEUE_H
+#ifndef DSC_LINKED_QUEUE_H
+#define DSC_LINKED_QUEUE_H
 
 #include "singly_linked_list.h"
 

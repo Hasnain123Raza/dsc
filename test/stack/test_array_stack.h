@@ -1,5 +1,5 @@
-#ifndef TEST_ARRAY_STACK_H
-#define TEST_ARRAY_STACK_H
+#ifndef TEST_DSC_ARRAY_STACK_H
+#define TEST_DSC_ARRAY_STACK_H
 
 #include <BCUnit/BCUnit.h>
 #include <BCUnit/Basic.h>

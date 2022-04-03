@@ -1,5 +1,5 @@
-#ifndef DYNAMIC_LIST_H
-#define DYNAMIC_LIST_H
+#ifndef DSC_DYNAMIC_LIST_H
+#define DSC_DYNAMIC_LIST_H
 
 #include <stdlib.h>
 

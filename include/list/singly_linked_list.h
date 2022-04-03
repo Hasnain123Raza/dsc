@@ -1,5 +1,5 @@
-#ifndef SINGLY_LINKED_LIST_H
-#define SINGLY_LINKED_LIST_H
+#ifndef DSC_SINGLY_LINKED_LIST_H
+#define DSC_SINGLY_LINKED_LIST_H
 
 #include <stdlib.h>
 

@@ -1,5 +1,5 @@
-#ifndef TEST_ARRAY_QUEUE_H
-#define TEST_ARRAY_QUEUE_H
+#ifndef TEST_DSC_ARRAY_QUEUE_H
+#define TEST_DSC_ARRAY_QUEUE_H
 
 #include <BCUnit/BCUnit.h>
 #include <BCUnit/Basic.h>

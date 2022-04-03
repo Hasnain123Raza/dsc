@@ -1,5 +1,5 @@
-#ifndef ARRAY_STACK_H
-#define ARRAY_STACK_H
+#ifndef DSC_ARRAY_STACK_H
+#define DSC_ARRAY_STACK_H
 
 #include "dynamic_list.h"
 

@@ -1,5 +1,5 @@
-#ifndef TEST_LINKED_STACK_H
-#define TEST_LINKED_STACK_H
+#ifndef TEST_DSC_LINKED_STACK_H
+#define TEST_DSC_LINKED_STACK_H
 
 #include <BCUnit/BCUnit.h>
 #include <BCUnit/Basic.h>
