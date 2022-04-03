@@ -13,8 +13,6 @@
  * @author Hasnain Raza
  */
 
-#define DSC_ARRAY_QUEUE_INITIAL_CAPACITY 16 ///< Initial capacity of the queue
-
 typedef void (*dsc_array_queue_free_func)(void *); ///< Function pointer to free the data
 
 /**
@@ -22,7 +20,7 @@ typedef void (*dsc_array_queue_free_func)(void *); ///< Function pointer to free
  * 
  * @details This structure represents the array queue.
  */
-typedef struct dsc_array_queue_t {
+typedef struct {
     dsc_dynamic_list_t *list; /**< Dynamic list */
     int head; /**< Head of the queue */
     int tail; /**< Tail of the queue */
@@ -32,11 +30,11 @@ typedef struct dsc_array_queue_t {
  * @brief Initialize the array queue
  * 
  * @details This function initializes the array queue. Capacity can't be less than
- * DSC_ARRAY_QUEUE_INITIAL_CAPACITY. If the capacity is less than DSC_ARRAY_QUEUE_INITIAL_CAPACITY,
- * it will be set to DSC_ARRAY_QUEUE_INITIAL_CAPACITY. If the free_func is NULL, the data will not be freed.
+ * DSC_DYNAMIC_LIST_INITIAL_CAPACITY. If the capacity is less than DSC_DYNAMIC_LIST_INITIAL_CAPACITY,
+ * it will be set to DSC_DYNAMIC_LIST_INITIAL_CAPACITY. If the free_func is NULL, the data will not be freed.
  * If allocation fails, the function returns NULL.
  * 
- * @param capacity Initial capacity of the queue, can't be less than DSC_ARRAY_QUEUE_INITIAL_CAPACITY
+ * @param capacity Initial capacity of the queue
  * @param free_func Function pointer to free the data
  * @return dsc_array_queue_t* Pointer to the array queue, NULL on failure
  */
@@ -54,11 +52,12 @@ void dsc_array_queue_free(dsc_array_queue_t *array_queue);
  * 
  * @details This function resizes the array queue. If the new capacity is less than the current capacity,
  * the queue is not modified and the function returns -1. If the new capacity is greater than the current
- * capacity, the queue is resized and the function returns 0. If the allocation fails, the function returns -1
- * and the queue is not modified.
+ * capacity, the queue is resized and the function returns 0. If the new capacity is less than
+ * DSC_DYNAMIC_LIST_INITIAL_CAPACITY, the queue is resized to DSC_DYNAMIC_LIST_INITIAL_CAPACITY and the
+ * function returns 0. If the allocation fails, the function returns -1 and the queue is not modified.
  * 
  * @param array_queue Pointer to the array queue, can not be NULL
- * @param capacity New capacity of the queue, can not be less than DSC_ARRAY_QUEUE_INITIAL_CAPACITY
+ * @param capacity New capacity of the queue, can not be less than the current size of the queue
  * @return int 0 on success, -1 on failure
  */
 int dsc_array_queue_resize(dsc_array_queue_t *array_queue, int capacity);

@@ -13,8 +13,6 @@
  * @author Hasnain Raza
  */
 
-#define DSC_ARRAY_STACK_INITIAL_CAPACITY 16 /**< Initial capacity of the stack */
-
 typedef void (*dsc_array_stack_free_func)(void *); /**< Function pointer to free the data */
 
 typedef dsc_dynamic_list_t dsc_array_stack_t; /**< Array stack */
@@ -23,11 +21,11 @@ typedef dsc_dynamic_list_t dsc_array_stack_t; /**< Array stack */
  * @brief Initialize the array stack
  * 
  * @details This function initializes the array stack. Capacity can't be less than
- * DSC_ARRAY_STACK_INITIAL_CAPACITY. If the capacity is less than DSC_ARRAY_STACK_INITIAL_CAPACITY,
- * it is set to DSC_ARRAY_STACK_INITIAL_CAPACITY. If the free_func is NULL, the data is not freed.
+ * DSC_DYNAMIC_LIST_INITIAL_CAPACITY. If the capacity is less than DSC_DYNAMIC_LIST_INITIAL_CAPACITY,
+ * it is set to DSC_DYNAMIC_LIST_INITIAL_CAPACITY. If the free_func is NULL, the data is not freed.
  * If allocation fails, the function returns NULL.
  * 
- * @param capacity Initial capacity of the stack, can not be less than DSC_ARRAY_STACK_INITIAL_CAPACITY
+ * @param capacity Initial capacity of the stack
  * @param free_func Function pointer to free the data
  * @return dsc_array_stack_t* Pointer to the array stack, NULL on failure
  */
@@ -45,8 +43,10 @@ void dsc_array_stack_free(dsc_array_stack_t *array_stack);
  * 
  * @details This function resizes the array stack. If the new capacity is less than the current
  * size of the stack, the stack is not modified and the function returns -1. If the new capacity is
- * greater than the current capacity, the stack is resized and the function returns 0. If allocation
- * fails, the function returns -1 and the stack is not modified.
+ * greater than the current capacity, the stack is resized and the function returns 0. If the new capacity
+ * is less than DSC_DYNAMIC_LIST_INITIAL_CAPACITY, the stack is resized to DSC_DYNAMIC_LIST_INITIAL_CAPACITY
+ * and the function returns 0. If the allocation fails, the function returns -1 and the stack is not
+ * modified.
  * 
  * @param array_stack Pointer to the array stack, can not be NULL
  * @param capacity New capacity of the stack, can not be less than the current size of the stack

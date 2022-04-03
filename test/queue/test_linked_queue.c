@@ -27,8 +27,62 @@ CU_ErrorCode prepare_suite_linked_queue() {
 
 
 
-void test_linked_queue_create(void);
-void test_linked_queue_free(void);
-void test_linked_queue_enqueue(void);
-void test_linked_queue_dequeue(void);
-void test_linked_queue_peek(void);
+void test_linked_queue_create(void) {
+
+}
+
+void test_linked_queue_free(void) {
+
+}
+
+void test_linked_queue_enqueue(void) {
+    int test_data[] = {0, 1, 2, 3, 4};
+
+    dsc_linked_queue_t *queue = dsc_linked_queue_create(NULL);
+    CU_ASSERT_PTR_NOT_NULL_FATAL(queue);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 0), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 1), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 2), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 3), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 4), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, NULL), -1);
+    CU_ASSERT_EQUAL(queue->head->data, test_data + 0);
+    CU_ASSERT_EQUAL(queue->head->next->data, test_data + 1);
+    CU_ASSERT_EQUAL(queue->head->next->next->data, test_data + 2);
+    CU_ASSERT_EQUAL(queue->head->next->next->next->data, test_data + 3);
+    CU_ASSERT_EQUAL(queue->head->next->next->next->next->data, test_data + 4);
+    dsc_linked_queue_free(queue);
+}
+
+void test_linked_queue_dequeue(void) {
+    int test_data[] = {0, 1, 2, 3, 4};
+
+    dsc_linked_queue_t *queue = dsc_linked_queue_create(NULL);
+    CU_ASSERT_PTR_NOT_NULL_FATAL(queue);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 0), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 1), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 2), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 3), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_enqueue(queue, test_data + 4), 0);
+    CU_ASSERT_EQUAL(dsc_linked_queue_dequeue(queue), test_data + 0);
+    CU_ASSERT_EQUAL(queue->head->data, test_data + 1);
+    CU_ASSERT_EQUAL(queue->head->next->data, test_data + 2);
+    CU_ASSERT_EQUAL(queue->head->next->next->data, test_data + 3);
+    CU_ASSERT_EQUAL(queue->head->next->next->next->data, test_data + 4);
+    CU_ASSERT_EQUAL(dsc_linked_queue_dequeue(queue), test_data + 1);
+    CU_ASSERT_EQUAL(queue->head->data, test_data + 2);
+    CU_ASSERT_EQUAL(queue->head->next->data, test_data + 3);
+    CU_ASSERT_EQUAL(queue->head->next->next->data, test_data + 4);
+    CU_ASSERT_EQUAL(dsc_linked_queue_dequeue(queue), test_data + 2);
+    CU_ASSERT_EQUAL(queue->head->data, test_data + 3);
+    CU_ASSERT_EQUAL(queue->head->next->data, test_data + 4);
+    CU_ASSERT_EQUAL(dsc_linked_queue_dequeue(queue), test_data + 3);
+    CU_ASSERT_EQUAL(queue->head->data, test_data + 4);
+    CU_ASSERT_EQUAL(dsc_linked_queue_dequeue(queue), test_data + 4);
+    CU_ASSERT_EQUAL(dsc_linked_queue_dequeue(queue), NULL);
+    dsc_linked_queue_free(queue);
+}
+
+void test_linked_queue_peek(void) {
+
+}

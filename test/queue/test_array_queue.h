@@ -4,7 +4,7 @@
 #include <BCUnit/BCUnit.h>
 #include <BCUnit/Basic.h>
 
-#include "array_stack.h"
+#include "array_queue.h"
 
 int init_suite_array_queue(void);
 int clean_suite_array_queue(void);

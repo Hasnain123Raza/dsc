@@ -5,6 +5,7 @@
         "bcunit.h": "c",
         "array": "c",
         "string": "c",
-        "string_view": "c"
+        "string_view": "c",
+        "array_stack.h": "c"
     }
 }
