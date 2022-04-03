@@ -44,7 +44,7 @@ void test_singly_linked_list_free(void) {
 }
 
 void test_singly_linked_list_insert(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_singly_linked_list_t *list = dsc_singly_linked_list_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(list);
@@ -108,7 +108,7 @@ void test_singly_linked_list_insert(void) {
 }
 
 void test_singly_linked_list_remove(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_singly_linked_list_t *list = dsc_singly_linked_list_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(list);

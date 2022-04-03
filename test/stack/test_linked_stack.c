@@ -36,7 +36,7 @@ void test_linked_stack_free(void) {
 }
 
 void test_linked_stack_push(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_linked_stack_t *stack = dsc_linked_stack_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(stack);
@@ -55,7 +55,7 @@ void test_linked_stack_push(void) {
 }
 
 void test_linked_stack_pop(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_linked_stack_t *stack = dsc_linked_stack_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(stack);

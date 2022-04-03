@@ -41,7 +41,7 @@ void test_array_stack_resize(void) {
 }
 
 void test_array_stack_push(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_array_stack_t *stack = dsc_array_stack_create(0, NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(stack);
@@ -60,7 +60,7 @@ void test_array_stack_push(void) {
 }
 
 void test_array_stack_pop(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_array_stack_t *stack = dsc_array_stack_create(0, NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(stack);

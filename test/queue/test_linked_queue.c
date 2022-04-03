@@ -36,7 +36,7 @@ void test_linked_queue_free(void) {
 }
 
 void test_linked_queue_enqueue(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_linked_queue_t *queue = dsc_linked_queue_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(queue);
@@ -55,7 +55,7 @@ void test_linked_queue_enqueue(void) {
 }
 
 void test_linked_queue_dequeue(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_linked_queue_t *queue = dsc_linked_queue_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(queue);

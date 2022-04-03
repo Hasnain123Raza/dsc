@@ -35,12 +35,12 @@ void dsc_dynamic_list_free(dsc_dynamic_list_t *dynamic_list) {
 }
 
 int dsc_dynamic_list_resize(dsc_dynamic_list_t *dynamic_list, int capacity) {
-    if (dynamic_list == NULL || capacity < dynamic_list->size) {
-        return -1;
-    }
-
     if (capacity < DSC_DYNAMIC_LIST_INITIAL_CAPACITY) {
         capacity = DSC_DYNAMIC_LIST_INITIAL_CAPACITY;
+    }
+
+    if (dynamic_list == NULL || capacity < dynamic_list->size) {
+        return -1;
     }
 
     void **data = (void **)realloc(dynamic_list->data, sizeof(void *) * capacity);
@@ -90,8 +90,8 @@ void *dsc_dynamic_list_remove(dsc_dynamic_list_t *dynamic_list, int index) {
 
     dynamic_list->size--;
 
-    if (dynamic_list->size <= (dynamic_list->capacity >> 1)) {
-        dsc_dynamic_list_resize(dynamic_list, dynamic_list->capacity >> 2);
+    if (dynamic_list->size <= (dynamic_list->capacity >> 1) && dynamic_list->capacity > DSC_DYNAMIC_LIST_INITIAL_CAPACITY) {
+        dsc_dynamic_list_resize(dynamic_list, dynamic_list->capacity >> 1);
     }
 
     return data;

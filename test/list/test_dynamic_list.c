@@ -70,7 +70,7 @@ void test_dynamic_list_resize(void) {
 }
 
 void test_dynamic_list_insert(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_dynamic_list_t *list = dsc_dynamic_list_create(64, NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(list);
@@ -110,7 +110,7 @@ void test_dynamic_list_insert(void) {
 }
 
 void test_dynamic_list_remove(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_dynamic_list_t *list = dsc_dynamic_list_create(64, NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(list);

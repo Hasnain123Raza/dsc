@@ -37,22 +37,92 @@ void test_array_queue_free(void) {
 }
 
 void test_array_queue_resize(void) {
-
-}
-
-void test_array_queue_enqueue(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[31] = {};
 
     dsc_array_queue_t *queue = dsc_array_queue_create(0, NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(queue);
-    CU_ASSERT_EQUAL(queue->head, queue->tail);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 0);
+    CU_ASSERT_EQUAL(queue->list->size, 0);
+    CU_ASSERT_EQUAL(queue->list->capacity, 16);
+    for (int i = 0; i < 15; i++) {
+        CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + i), 0);
+    }
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 15);
+    CU_ASSERT_EQUAL(queue->list->size, 15);
+    CU_ASSERT_EQUAL(queue->list->capacity, 16);
+    for (int i = 0; i < 8; i++) {
+        CU_ASSERT_EQUAL(dsc_array_queue_dequeue(queue), test_data + i);
+    }
+    CU_ASSERT_EQUAL(queue->head, 8);
+    CU_ASSERT_EQUAL(queue->tail, 15);
+    CU_ASSERT_EQUAL(queue->list->size, 7);
+    CU_ASSERT_EQUAL(queue->list->capacity, 16);
+    for (int i = 0; i < 8; i++) {
+        CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + i), 0);
+    }
+    CU_ASSERT_EQUAL(queue->head, 8);
+    CU_ASSERT_EQUAL(queue->tail, 7);
+    CU_ASSERT_EQUAL(queue->list->size, 15);
+    CU_ASSERT_EQUAL(queue->list->capacity, 16);
+    CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 15), 0);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 16);
+    CU_ASSERT_EQUAL(queue->list->size, 16);
+    CU_ASSERT_EQUAL(queue->list->capacity, 32);
+    CU_ASSERT_EQUAL(dsc_array_queue_dequeue(queue), test_data + 8);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 15);
+    CU_ASSERT_EQUAL(queue->list->size, 15);
+    CU_ASSERT_EQUAL(queue->list->capacity, 16);
+    CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 16), 0);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 16);
+    CU_ASSERT_EQUAL(queue->list->size, 16);
+    CU_ASSERT_EQUAL(queue->list->capacity, 32);
+    CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 17), 0);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 17);
+    CU_ASSERT_EQUAL(queue->list->size, 17);
+    CU_ASSERT_EQUAL(queue->list->capacity, 32);
+    CU_ASSERT_EQUAL(dsc_array_queue_dequeue(queue), test_data + 9);
+    CU_ASSERT_EQUAL(queue->head, 1);
+    CU_ASSERT_EQUAL(queue->tail, 17);
+    CU_ASSERT_EQUAL(queue->list->size, 16);
+    CU_ASSERT_EQUAL(queue->list->capacity, 32);
+    CU_ASSERT_EQUAL(dsc_array_queue_dequeue(queue), test_data + 10);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 15);
+    CU_ASSERT_EQUAL(queue->list->size, 15);
+    CU_ASSERT_EQUAL(queue->list->capacity, 16);
+}
+
+void test_array_queue_enqueue(void) {
+    int test_data[5] = {};
+
+    dsc_array_queue_t *queue = dsc_array_queue_create(0, NULL);
+    CU_ASSERT_PTR_NOT_NULL_FATAL(queue);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 0);
     CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 0), 0);
-    CU_ASSERT_NOT_EQUAL(queue->head, queue->tail);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 1);
     CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 1), 0);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 2);
     CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 2), 0);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 3);
     CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 3), 0);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 4);
     CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 4), 0);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 5);
     CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, NULL), -1);
+    CU_ASSERT_EQUAL(queue->head, 0);
+    CU_ASSERT_EQUAL(queue->tail, 5);
     CU_ASSERT_EQUAL(queue->list->data[0], test_data + 0);
     CU_ASSERT_EQUAL(queue->list->data[1], test_data + 1);
     CU_ASSERT_EQUAL(queue->list->data[2], test_data + 2);
@@ -62,7 +132,7 @@ void test_array_queue_enqueue(void) {
 }
 
 void test_array_queue_dequeue(void) {
-    int test_data[] = {0, 1, 2, 3, 4};
+    int test_data[5] = {};
 
     dsc_array_queue_t *queue = dsc_array_queue_create(0, NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(queue);

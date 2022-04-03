@@ -3,7 +3,7 @@ include_HEADERS = \
     include/list/singly_linked_list.h \
     include/stack/array_stack.h \
     include/stack/linked_stack.h \
-    #include/queue/array_queue.h \
+    include/queue/array_queue.h \
     include/queue/linked_queue.h
 
 lib_LIBRARIES = libdsc.a
@@ -16,7 +16,7 @@ libdsc_a_SOURCES = \
     src/list/singly_linked_list.c \
     src/stack/array_stack.c \
     src/stack/linked_stack.c \
-    #src/queue/array_queue.c \
+    src/queue/array_queue.c \
     src/queue/linked_queue.c
 
 check_PROGRAMS = test/driver
@@ -29,7 +29,7 @@ test_driver_SOURCES = test/driver.c \
     test/stack/test_array_stack.c \
     test/stack/test_linked_stack.h \
     test/stack/test_linked_stack.c \
-    #test/queue/test_array_queue.h \
+    test/queue/test_array_queue.h \
     test/queue/test_array_queue.c \
     test/queue/test_linked_queue.h \
     test/queue/test_linked_queue.c

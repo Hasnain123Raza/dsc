@@ -142,13 +142,17 @@ am__dirstamp = $(am__leading_dot)dirstamp
 am_libdsc_a_OBJECTS = src/list/libdsc_a-dynamic_list.$(OBJEXT) \
 	src/list/libdsc_a-singly_linked_list.$(OBJEXT) \
 	src/stack/libdsc_a-array_stack.$(OBJEXT) \
-	src/stack/libdsc_a-linked_stack.$(OBJEXT)
+	src/stack/libdsc_a-linked_stack.$(OBJEXT) \
+	src/queue/libdsc_a-array_queue.$(OBJEXT) \
+	src/queue/libdsc_a-linked_queue.$(OBJEXT)
 libdsc_a_OBJECTS = $(am_libdsc_a_OBJECTS)
 am_test_driver_OBJECTS = test/driver-driver.$(OBJEXT) \
 	test/list/driver-test_dynamic_list.$(OBJEXT) \
 	test/list/driver-test_singly_linked_list.$(OBJEXT) \
 	test/stack/driver-test_array_stack.$(OBJEXT) \
-	test/stack/driver-test_linked_stack.$(OBJEXT)
+	test/stack/driver-test_linked_stack.$(OBJEXT) \
+	test/queue/driver-test_array_queue.$(OBJEXT) \
+	test/queue/driver-test_linked_queue.$(OBJEXT)
 test_driver_OBJECTS = $(am_test_driver_OBJECTS)
 test_driver_DEPENDENCIES = libdsc.a
 AM_V_P = $(am__v_P_@AM_V@)
@@ -168,11 +172,15 @@ depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__maybe_remake_depfiles = depfiles
 am__depfiles_remade = src/list/$(DEPDIR)/libdsc_a-dynamic_list.Po \
 	src/list/$(DEPDIR)/libdsc_a-singly_linked_list.Po \
+	src/queue/$(DEPDIR)/libdsc_a-array_queue.Po \
+	src/queue/$(DEPDIR)/libdsc_a-linked_queue.Po \
 	src/stack/$(DEPDIR)/libdsc_a-array_stack.Po \
 	src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po \
 	test/$(DEPDIR)/driver-driver.Po \
 	test/list/$(DEPDIR)/driver-test_dynamic_list.Po \
 	test/list/$(DEPDIR)/driver-test_singly_linked_list.Po \
+	test/queue/$(DEPDIR)/driver-test_array_queue.Po \
+	test/queue/$(DEPDIR)/driver-test_linked_queue.Po \
 	test/stack/$(DEPDIR)/driver-test_array_stack.Po \
 	test/stack/$(DEPDIR)/driver-test_linked_stack.Po
 am__mv = mv -f
@@ -518,7 +526,7 @@ include_HEADERS = \
     include/list/singly_linked_list.h \
     include/stack/array_stack.h \
     include/stack/linked_stack.h \
-    #include/queue/array_queue.h \
+    include/queue/array_queue.h \
     include/queue/linked_queue.h
 
 lib_LIBRARIES = libdsc.a
@@ -532,7 +540,7 @@ libdsc_a_SOURCES = \
     src/list/singly_linked_list.c \
     src/stack/array_stack.c \
     src/stack/linked_stack.c \
-    #src/queue/array_queue.c \
+    src/queue/array_queue.c \
     src/queue/linked_queue.c
 
 test_driver_SOURCES = test/driver.c \
@@ -544,7 +552,7 @@ test_driver_SOURCES = test/driver.c \
     test/stack/test_array_stack.c \
     test/stack/test_linked_stack.h \
     test/stack/test_linked_stack.c \
-    #test/queue/test_array_queue.h \
+    test/queue/test_array_queue.h \
     test/queue/test_array_queue.c \
     test/queue/test_linked_queue.h \
     test/queue/test_linked_queue.c
@@ -666,6 +674,16 @@ src/stack/libdsc_a-array_stack.$(OBJEXT): src/stack/$(am__dirstamp) \
 	src/stack/$(DEPDIR)/$(am__dirstamp)
 src/stack/libdsc_a-linked_stack.$(OBJEXT): src/stack/$(am__dirstamp) \
 	src/stack/$(DEPDIR)/$(am__dirstamp)
+src/queue/$(am__dirstamp):
+	@$(MKDIR_P) src/queue
+	@: > src/queue/$(am__dirstamp)
+src/queue/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) src/queue/$(DEPDIR)
+	@: > src/queue/$(DEPDIR)/$(am__dirstamp)
+src/queue/libdsc_a-array_queue.$(OBJEXT): src/queue/$(am__dirstamp) \
+	src/queue/$(DEPDIR)/$(am__dirstamp)
+src/queue/libdsc_a-linked_queue.$(OBJEXT): src/queue/$(am__dirstamp) \
+	src/queue/$(DEPDIR)/$(am__dirstamp)
 
 libdsc.a: $(libdsc_a_OBJECTS) $(libdsc_a_DEPENDENCIES) $(EXTRA_libdsc_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libdsc.a
@@ -701,6 +719,18 @@ test/stack/driver-test_array_stack.$(OBJEXT):  \
 test/stack/driver-test_linked_stack.$(OBJEXT):  \
 	test/stack/$(am__dirstamp) \
 	test/stack/$(DEPDIR)/$(am__dirstamp)
+test/queue/$(am__dirstamp):
+	@$(MKDIR_P) test/queue
+	@: > test/queue/$(am__dirstamp)
+test/queue/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) test/queue/$(DEPDIR)
+	@: > test/queue/$(DEPDIR)/$(am__dirstamp)
+test/queue/driver-test_array_queue.$(OBJEXT):  \
+	test/queue/$(am__dirstamp) \
+	test/queue/$(DEPDIR)/$(am__dirstamp)
+test/queue/driver-test_linked_queue.$(OBJEXT):  \
+	test/queue/$(am__dirstamp) \
+	test/queue/$(DEPDIR)/$(am__dirstamp)
 
 test/driver$(EXEEXT): $(test_driver_OBJECTS) $(test_driver_DEPENDENCIES) $(EXTRA_test_driver_DEPENDENCIES) test/$(am__dirstamp)
 	@rm -f test/driver$(EXEEXT)
@@ -709,9 +739,11 @@ test/driver$(EXEEXT): $(test_driver_OBJECTS) $(test_driver_DEPENDENCIES) $(EXTRA
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f src/list/*.$(OBJEXT)
+	-rm -f src/queue/*.$(OBJEXT)
 	-rm -f src/stack/*.$(OBJEXT)
 	-rm -f test/*.$(OBJEXT)
 	-rm -f test/list/*.$(OBJEXT)
+	-rm -f test/queue/*.$(OBJEXT)
 	-rm -f test/stack/*.$(OBJEXT)
 
 distclean-compile:
@@ -719,11 +751,15 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@src/list/$(DEPDIR)/libdsc_a-dynamic_list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/list/$(DEPDIR)/libdsc_a-singly_linked_list.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/queue/$(DEPDIR)/libdsc_a-array_queue.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/queue/$(DEPDIR)/libdsc_a-linked_queue.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/stack/$(DEPDIR)/libdsc_a-array_stack.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@test/$(DEPDIR)/driver-driver.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@test/list/$(DEPDIR)/driver-test_dynamic_list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@test/list/$(DEPDIR)/driver-test_singly_linked_list.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@test/queue/$(DEPDIR)/driver-test_array_queue.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@test/queue/$(DEPDIR)/driver-test_linked_queue.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@test/stack/$(DEPDIR)/driver-test_array_stack.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@test/stack/$(DEPDIR)/driver-test_linked_stack.Po@am__quote@ # am--include-marker
 
@@ -805,6 +841,34 @@ src/stack/libdsc_a-linked_stack.obj: src/stack/linked_stack.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/stack/libdsc_a-linked_stack.obj `if test -f 'src/stack/linked_stack.c'; then $(CYGPATH_W) 'src/stack/linked_stack.c'; else $(CYGPATH_W) '$(srcdir)/src/stack/linked_stack.c'; fi`
 
+src/queue/libdsc_a-array_queue.o: src/queue/array_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/queue/libdsc_a-array_queue.o -MD -MP -MF src/queue/$(DEPDIR)/libdsc_a-array_queue.Tpo -c -o src/queue/libdsc_a-array_queue.o `test -f 'src/queue/array_queue.c' || echo '$(srcdir)/'`src/queue/array_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/queue/$(DEPDIR)/libdsc_a-array_queue.Tpo src/queue/$(DEPDIR)/libdsc_a-array_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/queue/array_queue.c' object='src/queue/libdsc_a-array_queue.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/queue/libdsc_a-array_queue.o `test -f 'src/queue/array_queue.c' || echo '$(srcdir)/'`src/queue/array_queue.c
+
+src/queue/libdsc_a-array_queue.obj: src/queue/array_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/queue/libdsc_a-array_queue.obj -MD -MP -MF src/queue/$(DEPDIR)/libdsc_a-array_queue.Tpo -c -o src/queue/libdsc_a-array_queue.obj `if test -f 'src/queue/array_queue.c'; then $(CYGPATH_W) 'src/queue/array_queue.c'; else $(CYGPATH_W) '$(srcdir)/src/queue/array_queue.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/queue/$(DEPDIR)/libdsc_a-array_queue.Tpo src/queue/$(DEPDIR)/libdsc_a-array_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/queue/array_queue.c' object='src/queue/libdsc_a-array_queue.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/queue/libdsc_a-array_queue.obj `if test -f 'src/queue/array_queue.c'; then $(CYGPATH_W) 'src/queue/array_queue.c'; else $(CYGPATH_W) '$(srcdir)/src/queue/array_queue.c'; fi`
+
+src/queue/libdsc_a-linked_queue.o: src/queue/linked_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/queue/libdsc_a-linked_queue.o -MD -MP -MF src/queue/$(DEPDIR)/libdsc_a-linked_queue.Tpo -c -o src/queue/libdsc_a-linked_queue.o `test -f 'src/queue/linked_queue.c' || echo '$(srcdir)/'`src/queue/linked_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/queue/$(DEPDIR)/libdsc_a-linked_queue.Tpo src/queue/$(DEPDIR)/libdsc_a-linked_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/queue/linked_queue.c' object='src/queue/libdsc_a-linked_queue.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/queue/libdsc_a-linked_queue.o `test -f 'src/queue/linked_queue.c' || echo '$(srcdir)/'`src/queue/linked_queue.c
+
+src/queue/libdsc_a-linked_queue.obj: src/queue/linked_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/queue/libdsc_a-linked_queue.obj -MD -MP -MF src/queue/$(DEPDIR)/libdsc_a-linked_queue.Tpo -c -o src/queue/libdsc_a-linked_queue.obj `if test -f 'src/queue/linked_queue.c'; then $(CYGPATH_W) 'src/queue/linked_queue.c'; else $(CYGPATH_W) '$(srcdir)/src/queue/linked_queue.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/queue/$(DEPDIR)/libdsc_a-linked_queue.Tpo src/queue/$(DEPDIR)/libdsc_a-linked_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/queue/linked_queue.c' object='src/queue/libdsc_a-linked_queue.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdsc_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/queue/libdsc_a-linked_queue.obj `if test -f 'src/queue/linked_queue.c'; then $(CYGPATH_W) 'src/queue/linked_queue.c'; else $(CYGPATH_W) '$(srcdir)/src/queue/linked_queue.c'; fi`
+
 test/driver-driver.o: test/driver.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/driver-driver.o -MD -MP -MF test/$(DEPDIR)/driver-driver.Tpo -c -o test/driver-driver.o `test -f 'test/driver.c' || echo '$(srcdir)/'`test/driver.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/$(DEPDIR)/driver-driver.Tpo test/$(DEPDIR)/driver-driver.Po
@@ -874,6 +938,34 @@ test/stack/driver-test_linked_stack.obj: test/stack/test_linked_stack.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/stack/test_linked_stack.c' object='test/stack/driver-test_linked_stack.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/stack/driver-test_linked_stack.obj `if test -f 'test/stack/test_linked_stack.c'; then $(CYGPATH_W) 'test/stack/test_linked_stack.c'; else $(CYGPATH_W) '$(srcdir)/test/stack/test_linked_stack.c'; fi`
+
+test/queue/driver-test_array_queue.o: test/queue/test_array_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/queue/driver-test_array_queue.o -MD -MP -MF test/queue/$(DEPDIR)/driver-test_array_queue.Tpo -c -o test/queue/driver-test_array_queue.o `test -f 'test/queue/test_array_queue.c' || echo '$(srcdir)/'`test/queue/test_array_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/queue/$(DEPDIR)/driver-test_array_queue.Tpo test/queue/$(DEPDIR)/driver-test_array_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/queue/test_array_queue.c' object='test/queue/driver-test_array_queue.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/queue/driver-test_array_queue.o `test -f 'test/queue/test_array_queue.c' || echo '$(srcdir)/'`test/queue/test_array_queue.c
+
+test/queue/driver-test_array_queue.obj: test/queue/test_array_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/queue/driver-test_array_queue.obj -MD -MP -MF test/queue/$(DEPDIR)/driver-test_array_queue.Tpo -c -o test/queue/driver-test_array_queue.obj `if test -f 'test/queue/test_array_queue.c'; then $(CYGPATH_W) 'test/queue/test_array_queue.c'; else $(CYGPATH_W) '$(srcdir)/test/queue/test_array_queue.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/queue/$(DEPDIR)/driver-test_array_queue.Tpo test/queue/$(DEPDIR)/driver-test_array_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/queue/test_array_queue.c' object='test/queue/driver-test_array_queue.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/queue/driver-test_array_queue.obj `if test -f 'test/queue/test_array_queue.c'; then $(CYGPATH_W) 'test/queue/test_array_queue.c'; else $(CYGPATH_W) '$(srcdir)/test/queue/test_array_queue.c'; fi`
+
+test/queue/driver-test_linked_queue.o: test/queue/test_linked_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/queue/driver-test_linked_queue.o -MD -MP -MF test/queue/$(DEPDIR)/driver-test_linked_queue.Tpo -c -o test/queue/driver-test_linked_queue.o `test -f 'test/queue/test_linked_queue.c' || echo '$(srcdir)/'`test/queue/test_linked_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/queue/$(DEPDIR)/driver-test_linked_queue.Tpo test/queue/$(DEPDIR)/driver-test_linked_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/queue/test_linked_queue.c' object='test/queue/driver-test_linked_queue.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/queue/driver-test_linked_queue.o `test -f 'test/queue/test_linked_queue.c' || echo '$(srcdir)/'`test/queue/test_linked_queue.c
+
+test/queue/driver-test_linked_queue.obj: test/queue/test_linked_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT test/queue/driver-test_linked_queue.obj -MD -MP -MF test/queue/$(DEPDIR)/driver-test_linked_queue.Tpo -c -o test/queue/driver-test_linked_queue.obj `if test -f 'test/queue/test_linked_queue.c'; then $(CYGPATH_W) 'test/queue/test_linked_queue.c'; else $(CYGPATH_W) '$(srcdir)/test/queue/test_linked_queue.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) test/queue/$(DEPDIR)/driver-test_linked_queue.Tpo test/queue/$(DEPDIR)/driver-test_linked_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test/queue/test_linked_queue.c' object='test/queue/driver-test_linked_queue.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_driver_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o test/queue/driver-test_linked_queue.obj `if test -f 'test/queue/test_linked_queue.c'; then $(CYGPATH_W) 'test/queue/test_linked_queue.c'; else $(CYGPATH_W) '$(srcdir)/test/queue/test_linked_queue.c'; fi`
 install-includeHEADERS: $(include_HEADERS)
 	@$(NORMAL_INSTALL)
 	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
@@ -1329,12 +1421,16 @@ distclean-generic:
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
 	-rm -f src/list/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/list/$(am__dirstamp)
+	-rm -f src/queue/$(DEPDIR)/$(am__dirstamp)
+	-rm -f src/queue/$(am__dirstamp)
 	-rm -f src/stack/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/stack/$(am__dirstamp)
 	-rm -f test/$(DEPDIR)/$(am__dirstamp)
 	-rm -f test/$(am__dirstamp)
 	-rm -f test/list/$(DEPDIR)/$(am__dirstamp)
 	-rm -f test/list/$(am__dirstamp)
+	-rm -f test/queue/$(DEPDIR)/$(am__dirstamp)
+	-rm -f test/queue/$(am__dirstamp)
 	-rm -f test/stack/$(DEPDIR)/$(am__dirstamp)
 	-rm -f test/stack/$(am__dirstamp)
 
@@ -1350,11 +1446,15 @@ distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 		-rm -f src/list/$(DEPDIR)/libdsc_a-dynamic_list.Po
 	-rm -f src/list/$(DEPDIR)/libdsc_a-singly_linked_list.Po
+	-rm -f src/queue/$(DEPDIR)/libdsc_a-array_queue.Po
+	-rm -f src/queue/$(DEPDIR)/libdsc_a-linked_queue.Po
 	-rm -f src/stack/$(DEPDIR)/libdsc_a-array_stack.Po
 	-rm -f src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po
 	-rm -f test/$(DEPDIR)/driver-driver.Po
 	-rm -f test/list/$(DEPDIR)/driver-test_dynamic_list.Po
 	-rm -f test/list/$(DEPDIR)/driver-test_singly_linked_list.Po
+	-rm -f test/queue/$(DEPDIR)/driver-test_array_queue.Po
+	-rm -f test/queue/$(DEPDIR)/driver-test_linked_queue.Po
 	-rm -f test/stack/$(DEPDIR)/driver-test_array_stack.Po
 	-rm -f test/stack/$(DEPDIR)/driver-test_linked_stack.Po
 	-rm -f Makefile
@@ -1406,11 +1506,15 @@ maintainer-clean: maintainer-clean-am
 	-rm -rf $(top_srcdir)/autom4te.cache
 		-rm -f src/list/$(DEPDIR)/libdsc_a-dynamic_list.Po
 	-rm -f src/list/$(DEPDIR)/libdsc_a-singly_linked_list.Po
+	-rm -f src/queue/$(DEPDIR)/libdsc_a-array_queue.Po
+	-rm -f src/queue/$(DEPDIR)/libdsc_a-linked_queue.Po
 	-rm -f src/stack/$(DEPDIR)/libdsc_a-array_stack.Po
 	-rm -f src/stack/$(DEPDIR)/libdsc_a-linked_stack.Po
 	-rm -f test/$(DEPDIR)/driver-driver.Po
 	-rm -f test/list/$(DEPDIR)/driver-test_dynamic_list.Po
 	-rm -f test/list/$(DEPDIR)/driver-test_singly_linked_list.Po
+	-rm -f test/queue/$(DEPDIR)/driver-test_array_queue.Po
+	-rm -f test/queue/$(DEPDIR)/driver-test_linked_queue.Po
 	-rm -f test/stack/$(DEPDIR)/driver-test_array_stack.Po
 	-rm -f test/stack/$(DEPDIR)/driver-test_linked_stack.Po
 	-rm -f Makefile
