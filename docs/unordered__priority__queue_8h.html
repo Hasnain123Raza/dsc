@@ -67,11 +67,182 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">unordered_priority_queue.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="singly__linked__list_8h_source.html">singly_linked_list.h</a>&quot;</code><br />
+</div>
 <p><a href="unordered__priority__queue_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aaf87fbf8d4e982ee2783572b401ebfaa"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unordered__priority__queue_8h.html#aaf87fbf8d4e982ee2783572b401ebfaa">dsc_unordered_priority_queue_compare_func</a>) (void *, void *)</td></tr>
+<tr class="separator:aaf87fbf8d4e982ee2783572b401ebfaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c3028a13b3c9be56bf867c149bc0cf"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unordered__priority__queue_8h.html#a88c3028a13b3c9be56bf867c149bc0cf">dsc_unordered_priority_queue_free_func</a>) (void *)</td></tr>
+<tr class="separator:a88c3028a13b3c9be56bf867c149bc0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ab330bfc5235888b8bb04010b9de4909a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unordered__priority__queue_8h.html#ab330bfc5235888b8bb04010b9de4909a">dsc_unordered_priority_queue_create</a> (<a class="el" href="unordered__priority__queue_8h.html#aaf87fbf8d4e982ee2783572b401ebfaa">dsc_unordered_priority_queue_compare_func</a> compare_func, <a class="el" href="unordered__priority__queue_8h.html#a88c3028a13b3c9be56bf867c149bc0cf">dsc_unordered_priority_queue_free_func</a> free_func)</td></tr>
+<tr class="separator:ab330bfc5235888b8bb04010b9de4909a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84fa661a81293e77ce376c0b00d0ee0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unordered__priority__queue_8h.html#a84fa661a81293e77ce376c0b00d0ee0e">dsc_unordered_priority_queue_free</a> (<a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *unordered_priority_queue)</td></tr>
+<tr class="separator:a84fa661a81293e77ce376c0b00d0ee0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76489810df1416a86019a0d332aca84e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unordered__priority__queue_8h.html#a76489810df1416a86019a0d332aca84e">dsc_unordered_priority_queue_enqueue</a> (<a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *unordered_priority_queue, void *data)</td></tr>
+<tr class="separator:a76489810df1416a86019a0d332aca84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aade5f925cba1ee7b9ed78cd948bbd047"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unordered__priority__queue_8h.html#aade5f925cba1ee7b9ed78cd948bbd047">dsc_unordered_priority_queue_dequeue</a> (<a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *unordered_priority_queue)</td></tr>
+<tr class="separator:aade5f925cba1ee7b9ed78cd948bbd047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc2de089252249c8660fb37697f648f"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unordered__priority__queue_8h.html#a9bc2de089252249c8660fb37697f648f">dsc_unordered_priority_queue_peek</a> (<a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *unordered_priority_queue)</td></tr>
+<tr class="separator:a9bc2de089252249c8660fb37697f648f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="aaf87fbf8d4e982ee2783572b401ebfaa" name="aaf87fbf8d4e982ee2783572b401ebfaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf87fbf8d4e982ee2783572b401ebfaa">&#9670;&nbsp;</a></span>dsc_unordered_priority_queue_compare_func</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int(* dsc_unordered_priority_queue_compare_func) (void *, void *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88c3028a13b3c9be56bf867c149bc0cf" name="a88c3028a13b3c9be56bf867c149bc0cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88c3028a13b3c9be56bf867c149bc0cf">&#9670;&nbsp;</a></span>dsc_unordered_priority_queue_free_func</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* dsc_unordered_priority_queue_free_func) (void *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ab330bfc5235888b8bb04010b9de4909a" name="ab330bfc5235888b8bb04010b9de4909a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab330bfc5235888b8bb04010b9de4909a">&#9670;&nbsp;</a></span>dsc_unordered_priority_queue_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> * dsc_unordered_priority_queue_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="unordered__priority__queue_8h.html#aaf87fbf8d4e982ee2783572b401ebfaa">dsc_unordered_priority_queue_compare_func</a>&#160;</td>
+          <td class="paramname"><em>compare_func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="unordered__priority__queue_8h.html#a88c3028a13b3c9be56bf867c149bc0cf">dsc_unordered_priority_queue_free_func</a>&#160;</td>
+          <td class="paramname"><em>free_func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aade5f925cba1ee7b9ed78cd948bbd047" name="aade5f925cba1ee7b9ed78cd948bbd047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aade5f925cba1ee7b9ed78cd948bbd047">&#9670;&nbsp;</a></span>dsc_unordered_priority_queue_dequeue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * dsc_unordered_priority_queue_dequeue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *&#160;</td>
+          <td class="paramname"><em>unordered_priority_queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76489810df1416a86019a0d332aca84e" name="a76489810df1416a86019a0d332aca84e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76489810df1416a86019a0d332aca84e">&#9670;&nbsp;</a></span>dsc_unordered_priority_queue_enqueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dsc_unordered_priority_queue_enqueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *&#160;</td>
+          <td class="paramname"><em>unordered_priority_queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84fa661a81293e77ce376c0b00d0ee0e" name="a84fa661a81293e77ce376c0b00d0ee0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84fa661a81293e77ce376c0b00d0ee0e">&#9670;&nbsp;</a></span>dsc_unordered_priority_queue_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsc_unordered_priority_queue_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *&#160;</td>
+          <td class="paramname"><em>unordered_priority_queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9bc2de089252249c8660fb37697f648f" name="a9bc2de089252249c8660fb37697f648f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc2de089252249c8660fb37697f648f">&#9670;&nbsp;</a></span>dsc_unordered_priority_queue_peek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * dsc_unordered_priority_queue_peek </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsc__unordered__priority__queue__t.html">dsc_unordered_priority_queue_t</a> *&#160;</td>
+          <td class="paramname"><em>unordered_priority_queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
