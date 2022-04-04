@@ -1,15 +1,11 @@
 #include "array_stack.h"
 
-dsc_array_stack_t *dsc_array_stack_create(int capacity, dsc_array_stack_free_func free_func) {
-    return dsc_dynamic_list_create(capacity, free_func);
+dsc_array_stack_t *dsc_array_stack_create(dsc_array_stack_free_func free_func) {
+    return dsc_dynamic_list_create(0, free_func);
 }
 
 void dsc_array_stack_free(dsc_array_stack_t *array_stack) {
     dsc_dynamic_list_free(array_stack);
-}
-
-int dsc_array_stack_resize(dsc_array_stack_t *array_stack, int capacity) {
-    return dsc_dynamic_list_resize(array_stack, capacity);
 }
 
 

@@ -1,7 +1,7 @@
 #include "array_queue.h"
 
-dsc_array_queue_t *dsc_array_queue_create(int capacity, dsc_array_queue_free_func free_func) {
-    dsc_dynamic_list_t *list = dsc_dynamic_list_create(capacity, free_func);
+dsc_array_queue_t *dsc_array_queue_create(dsc_array_queue_free_func free_func) {
+    dsc_dynamic_list_t *list = dsc_dynamic_list_create(0, free_func);
     if (list == NULL) {
         return NULL;
     }

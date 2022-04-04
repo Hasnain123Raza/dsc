@@ -29,16 +29,14 @@ typedef struct {
 /**
  * @brief Initialize the array queue
  * 
- * @details This function initializes the array queue. Capacity can't be less than
- * DSC_DYNAMIC_LIST_INITIAL_CAPACITY. If the capacity is less than DSC_DYNAMIC_LIST_INITIAL_CAPACITY,
- * it will be set to DSC_DYNAMIC_LIST_INITIAL_CAPACITY. If the free_func is NULL, the data will not be freed.
+ * @details This function initializes the array queue. If the free_func is NULL, the data will not be freed.
  * If allocation fails, the function returns NULL.
  * 
  * @param capacity Initial capacity of the queue
  * @param free_func Function pointer to free the data
  * @return dsc_array_queue_t* Pointer to the array queue, NULL on failure
  */
-dsc_array_queue_t *dsc_array_queue_create(int capacity, dsc_array_queue_free_func free_func);
+dsc_array_queue_t *dsc_array_queue_create(dsc_array_queue_free_func free_func);
 /**
  * @brief Frees the array queue
  * 
@@ -47,20 +45,6 @@ dsc_array_queue_t *dsc_array_queue_create(int capacity, dsc_array_queue_free_fun
  * @param array_queue Pointer to the array queue
  */
 void dsc_array_queue_free(dsc_array_queue_t *array_queue);
-/**
- * @brief Resizes the array queue
- * 
- * @details This function resizes the array queue. If the new capacity is less than the current capacity,
- * the queue is not modified and the function returns -1. If the new capacity is greater than the current
- * capacity, the queue is resized and the function returns 0. If the new capacity is less than
- * DSC_DYNAMIC_LIST_INITIAL_CAPACITY, the queue is resized to DSC_DYNAMIC_LIST_INITIAL_CAPACITY and the
- * function returns 0. If the allocation fails, the function returns -1 and the queue is not modified.
- * 
- * @param array_queue Pointer to the array queue, can not be NULL
- * @param capacity New capacity of the queue, can not be less than the current size of the queue
- * @return int 0 on success, -1 on failure
- */
-int dsc_array_queue_resize(dsc_array_queue_t *array_queue, int capacity);
 
 /**
  * @brief Enqueues the data to the array queue

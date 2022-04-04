@@ -1,5 +1,7 @@
 #include "test_array_queue.h"
 
+int dsc_array_queue_resize(dsc_array_queue_t *array_queue, int capacity);
+
 int init_suite_array_queue(void) {
     return 0;
 }
@@ -39,7 +41,7 @@ void test_array_queue_free(void) {
 void test_array_queue_resize(void) {
     int test_data[31] = {};
 
-    dsc_array_queue_t *queue = dsc_array_queue_create(0, NULL);
+    dsc_array_queue_t *queue = dsc_array_queue_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(queue);
     CU_ASSERT_EQUAL(queue->head, 0);
     CU_ASSERT_EQUAL(queue->tail, 0);
@@ -101,7 +103,7 @@ void test_array_queue_resize(void) {
 void test_array_queue_enqueue(void) {
     int test_data[5] = {};
 
-    dsc_array_queue_t *queue = dsc_array_queue_create(0, NULL);
+    dsc_array_queue_t *queue = dsc_array_queue_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(queue);
     CU_ASSERT_EQUAL(queue->head, 0);
     CU_ASSERT_EQUAL(queue->tail, 0);
@@ -134,7 +136,7 @@ void test_array_queue_enqueue(void) {
 void test_array_queue_dequeue(void) {
     int test_data[5] = {};
 
-    dsc_array_queue_t *queue = dsc_array_queue_create(0, NULL);
+    dsc_array_queue_t *queue = dsc_array_queue_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(queue);
     CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 0), 0);
     CU_ASSERT_EQUAL(dsc_array_queue_enqueue(queue, test_data + 1), 0);

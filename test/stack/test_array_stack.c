@@ -16,7 +16,6 @@ CU_ErrorCode prepare_suite_array_stack() {
     
     if ((CU_add_test(array_stack_suite, "dsc_array_stack_create", test_array_stack_create) == NULL) ||
         (CU_add_test(array_stack_suite, "dsc_array_stack_free", test_array_stack_free) == NULL) ||
-        (CU_add_test(array_stack_suite, "dsc_array_stack_resize", test_array_stack_resize) == NULL) ||
         (CU_add_test(array_stack_suite, "dsc_array_stack_push", test_array_stack_push) == NULL) ||
         (CU_add_test(array_stack_suite, "dsc_array_stack_pop", test_array_stack_pop) == NULL) ||
         (CU_add_test(array_stack_suite, "dsc_array_stack_peek", test_array_stack_peek) == NULL)) {
@@ -36,14 +35,10 @@ void test_array_stack_free(void) {
 
 }
 
-void test_array_stack_resize(void) {
-    
-}
-
 void test_array_stack_push(void) {
     int test_data[5] = {};
 
-    dsc_array_stack_t *stack = dsc_array_stack_create(0, NULL);
+    dsc_array_stack_t *stack = dsc_array_stack_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(stack);
     CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data), 0);
     CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 1), 0);
@@ -62,7 +57,7 @@ void test_array_stack_push(void) {
 void test_array_stack_pop(void) {
     int test_data[5] = {};
 
-    dsc_array_stack_t *stack = dsc_array_stack_create(0, NULL);
+    dsc_array_stack_t *stack = dsc_array_stack_create(NULL);
     CU_ASSERT_PTR_NOT_NULL_FATAL(stack);
     CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data), 0);
     CU_ASSERT_EQUAL(dsc_array_stack_push(stack, test_data + 1), 0);
