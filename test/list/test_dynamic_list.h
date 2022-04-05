@@ -8,7 +8,7 @@
 
 int init_suite_dynamic_list(void);
 int clean_suite_dynamic_list(void);
-CU_ErrorCode prepare_suite_dynamic_list();
+CU_ErrorCode prepare_suite_dynamic_list(void);
 
 void test_dynamic_list_create(void);
 void test_dynamic_list_free(void);

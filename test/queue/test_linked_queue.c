@@ -8,7 +8,7 @@ int clean_suite_linked_queue(void) {
     return 0;
 }
 
-CU_ErrorCode prepare_suite_linked_queue() {
+CU_ErrorCode prepare_suite_linked_queue(void) {
     CU_pSuite linked_queue_suite = CU_add_suite("Linked Queue", init_suite_linked_queue, clean_suite_linked_queue);
     if (linked_queue_suite == NULL) {
         return CU_get_error();

@@ -8,7 +8,7 @@ int clean_suite_singly_linked_list(void) {
     return 0;
 }
 
-CU_ErrorCode prepare_suite_singly_linked_list() {
+CU_ErrorCode prepare_suite_singly_linked_list(void) {
     CU_pSuite singly_linked_list_suite = CU_add_suite("Singly Linked List", init_suite_singly_linked_list, clean_suite_singly_linked_list);
     if (singly_linked_list_suite == NULL) {
         return CU_get_error();

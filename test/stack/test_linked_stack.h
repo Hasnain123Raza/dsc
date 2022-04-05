@@ -8,7 +8,7 @@
 
 int init_suite_linked_stack(void);
 int clean_suite_linked_stack(void);
-CU_ErrorCode prepare_suite_linked_stack();
+CU_ErrorCode prepare_suite_linked_stack(void);
 
 void test_linked_stack_create(void);
 void test_linked_stack_free(void);

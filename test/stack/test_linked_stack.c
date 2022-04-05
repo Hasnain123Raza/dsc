@@ -8,7 +8,7 @@ int clean_suite_linked_stack(void) {
     return 0;
 }
 
-CU_ErrorCode prepare_suite_linked_stack() {
+CU_ErrorCode prepare_suite_linked_stack(void) {
     CU_pSuite linked_stack_suite = CU_add_suite("Linked Stack", init_suite_linked_stack, clean_suite_linked_stack);
     if (linked_stack_suite == NULL) {
         return CU_get_error();

@@ -8,7 +8,7 @@ int clean_suite_array_stack(void) {
     return 0;
 }
 
-CU_ErrorCode prepare_suite_array_stack() {
+CU_ErrorCode prepare_suite_array_stack(void) {
     CU_pSuite array_stack_suite = CU_add_suite("Array Stack", init_suite_array_stack, clean_suite_array_stack);
     if (array_stack_suite == NULL) {
         return CU_get_error();

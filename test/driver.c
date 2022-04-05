@@ -8,6 +8,9 @@
 #include "test_linked_stack.h"
 #include "test_array_queue.h"
 #include "test_linked_queue.h"
+// #include "test_unordered_priority_queue.h"
+// #include "test_ordered_priority_queue.h"
+// #include "test_multilevel_priority_queue.h"
 
 int main(int argc, char* argv[]) {
     FILE *fp = fopen("test/driver.trs", "w");
@@ -24,7 +27,10 @@ int main(int argc, char* argv[]) {
         (prepare_suite_array_stack() != CUE_SUCCESS) ||
         (prepare_suite_linked_stack() != CUE_SUCCESS) ||
         (prepare_suite_array_queue() != CUE_SUCCESS) ||
-        (prepare_suite_linked_queue() != CUE_SUCCESS)
+        (prepare_suite_linked_queue() != CUE_SUCCESS) // ||
+        // (prepare_suite_unordered_priority_queue() != CUE_SUCCESS) ||
+        // (prepare_suite_ordered_priority_queue() != CUE_SUCCESS) ||
+        // (prepare_suite_multilevel_priority_queue() != CUE_SUCCESS)
         ) {
         CU_cleanup_registry();
         return CU_get_error();

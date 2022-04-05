@@ -10,7 +10,7 @@ int clean_suite_array_queue(void) {
     return 0;
 }
 
-CU_ErrorCode prepare_suite_array_queue() {
+CU_ErrorCode prepare_suite_array_queue(void) {
     CU_pSuite array_queue_suite = CU_add_suite("Array Queue", init_suite_array_queue, clean_suite_array_queue);
     if (array_queue_suite == NULL) {
         return CU_get_error();

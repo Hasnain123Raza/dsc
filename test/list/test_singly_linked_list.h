@@ -8,7 +8,7 @@
 
 int init_suite_singly_linked_list(void);
 int clean_suite_singly_linked_list(void);
-CU_ErrorCode prepare_suite_singly_linked_list();
+CU_ErrorCode prepare_suite_singly_linked_list(void);
 
 void test_singly_linked_list_create(void);
 void test_singly_linked_list_free(void);

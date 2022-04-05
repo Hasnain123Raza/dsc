@@ -8,7 +8,7 @@
 
 int init_suite_linked_queue(void);
 int clean_suite_linked_queue(void);
-CU_ErrorCode prepare_suite_linked_queue();
+CU_ErrorCode prepare_suite_linked_queue(void);
 
 void test_linked_queue_create(void);
 void test_linked_queue_free(void);

@@ -8,7 +8,7 @@ int clean_suite_dynamic_list(void) {
     return 0;
 }
 
-CU_ErrorCode prepare_suite_dynamic_list() {
+CU_ErrorCode prepare_suite_dynamic_list(void) {
     CU_pSuite dynamic_list_suite = CU_add_suite("Dynamic List", init_suite_dynamic_list, clean_suite_dynamic_list);
     if (dynamic_list_suite == NULL) {
         return CU_get_error();
