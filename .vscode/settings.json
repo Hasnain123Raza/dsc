@@ -8,6 +8,7 @@
         "string_view": "c",
         "array_stack.h": "c",
         "test_singly_linked_list.h": "c",
-        "dynamic_list.h": "c"
+        "dynamic_list.h": "c",
+        "singly_linked_list.h": "c"
     }
 }
