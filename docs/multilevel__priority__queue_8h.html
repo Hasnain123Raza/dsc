@@ -74,6 +74,9 @@ $(function() {
   <div class="headertitle"><div class="title">multilevel_priority_queue.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Multilevel priority queue.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="singly__linked__list_8h_source.html">singly_linked_list.h</a>&quot;</code><br />
 </div>
 <p><a href="multilevel__priority__queue_8h_source.html">Go to the source code of this file.</a></p>
@@ -81,43 +84,37 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsc__multilevel__priority__queue__t.html">dsc_multilevel_priority_queue_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multilevel priority queue structure.  <a href="structdsc__multilevel__priority__queue__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aa65d967e936483015d72c7ebea684cbe"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multilevel__priority__queue_8h.html#aa65d967e936483015d72c7ebea684cbe">dsc_multilevel_priority_queue_compare_func</a>) (void *, void *)</td></tr>
-<tr class="separator:aa65d967e936483015d72c7ebea684cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a277f7966a77cd4563fdb5453673bd7bf"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multilevel__priority__queue_8h.html#a277f7966a77cd4563fdb5453673bd7bf">dsc_multilevel_priority_queue_free_func</a>) (void *)</td></tr>
 <tr class="separator:a277f7966a77cd4563fdb5453673bd7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac3630d1c17587fe6de1a4d14e67d4897"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsc__multilevel__priority__queue__t.html">dsc_multilevel_priority_queue_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multilevel__priority__queue_8h.html#ac3630d1c17587fe6de1a4d14e67d4897">dsc_multilevel_priority_queue_create</a> (int num_levels, <a class="el" href="multilevel__priority__queue_8h.html#aa65d967e936483015d72c7ebea684cbe">dsc_multilevel_priority_queue_compare_func</a> compare_func, <a class="el" href="multilevel__priority__queue_8h.html#a277f7966a77cd4563fdb5453673bd7bf">dsc_multilevel_priority_queue_free_func</a> free_func)</td></tr>
-<tr class="separator:ac3630d1c17587fe6de1a4d14e67d4897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80529e9c265b96df60ec3a2b47c529f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsc__multilevel__priority__queue__t.html">dsc_multilevel_priority_queue_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multilevel__priority__queue_8h.html#ac80529e9c265b96df60ec3a2b47c529f">dsc_multilevel_priority_queue_create</a> (int num_levels, <a class="el" href="multilevel__priority__queue_8h.html#a277f7966a77cd4563fdb5453673bd7bf">dsc_multilevel_priority_queue_free_func</a> free_func)</td></tr>
+<tr class="memdesc:ac80529e9c265b96df60ec3a2b47c529f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the multilevel priority queue.  <a href="multilevel__priority__queue_8h.html#ac80529e9c265b96df60ec3a2b47c529f">More...</a><br /></td></tr>
+<tr class="separator:ac80529e9c265b96df60ec3a2b47c529f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65060426f305ccbc7f8f67b53be1919b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multilevel__priority__queue_8h.html#a65060426f305ccbc7f8f67b53be1919b">dsc_multilevel_priority_queue_free</a> (<a class="el" href="structdsc__multilevel__priority__queue__t.html">dsc_multilevel_priority_queue_t</a> *multilevel_priority_queue)</td></tr>
+<tr class="memdesc:a65060426f305ccbc7f8f67b53be1919b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the multilevel priority queue.  <a href="multilevel__priority__queue_8h.html#a65060426f305ccbc7f8f67b53be1919b">More...</a><br /></td></tr>
 <tr class="separator:a65060426f305ccbc7f8f67b53be1919b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83bd6adab6baf9883a4df32f8689572e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multilevel__priority__queue_8h.html#a83bd6adab6baf9883a4df32f8689572e">dsc_multilevel_priority_queue_enqueue</a> (<a class="el" href="structdsc__multilevel__priority__queue__t.html">dsc_multilevel_priority_queue_t</a> *multilevel_priority_queue, int level, void *data)</td></tr>
+<tr class="memdesc:a83bd6adab6baf9883a4df32f8689572e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues the data into the multilevel priority queue.  <a href="multilevel__priority__queue_8h.html#a83bd6adab6baf9883a4df32f8689572e">More...</a><br /></td></tr>
 <tr class="separator:a83bd6adab6baf9883a4df32f8689572e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad323dab8c0040343bb7e539035fc15a2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multilevel__priority__queue_8h.html#ad323dab8c0040343bb7e539035fc15a2">dsc_multilevel_priority_queue_dequeue</a> (<a class="el" href="structdsc__multilevel__priority__queue__t.html">dsc_multilevel_priority_queue_t</a> *multilevel_priority_queue)</td></tr>
+<tr class="memdesc:ad323dab8c0040343bb7e539035fc15a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dequeues the data from the multilevel priority queue.  <a href="multilevel__priority__queue_8h.html#ad323dab8c0040343bb7e539035fc15a2">More...</a><br /></td></tr>
 <tr class="separator:ad323dab8c0040343bb7e539035fc15a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16bc7b2d87a4e19a0de9d7f79421aa6c"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multilevel__priority__queue_8h.html#a16bc7b2d87a4e19a0de9d7f79421aa6c">dsc_multilevel_priority_queue_peek</a> (<a class="el" href="structdsc__multilevel__priority__queue__t.html">dsc_multilevel_priority_queue_t</a> *multilevel_priority_queue)</td></tr>
+<tr class="memdesc:a16bc7b2d87a4e19a0de9d7f79421aa6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks the data from the multilevel priority queue.  <a href="multilevel__priority__queue_8h.html#a16bc7b2d87a4e19a0de9d7f79421aa6c">More...</a><br /></td></tr>
 <tr class="separator:a16bc7b2d87a4e19a0de9d7f79421aa6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="aa65d967e936483015d72c7ebea684cbe" name="aa65d967e936483015d72c7ebea684cbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa65d967e936483015d72c7ebea684cbe">&#9670;&nbsp;</a></span>dsc_multilevel_priority_queue_compare_func</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef int(* dsc_multilevel_priority_queue_compare_func) (void *, void *)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Multilevel priority queue. </p>
+<p >This file contains the multilevel priority queue. It is a static lis of linked lists that contains each representing a level and containing elements of a certain priority. The enqueue operation is O(1). The dequeue operation is O(m). The peek operation is O(m). The m is the number of levels.</p>
+<dl class="section author"><dt>Author</dt><dd>Hasnain Raza </dd></dl>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a277f7966a77cd4563fdb5453673bd7bf" name="a277f7966a77cd4563fdb5453673bd7bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a277f7966a77cd4563fdb5453673bd7bf">&#9670;&nbsp;</a></span>dsc_multilevel_priority_queue_free_func</h2>
 
@@ -129,12 +126,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Function pointer to free the data </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac3630d1c17587fe6de1a4d14e67d4897" name="ac3630d1c17587fe6de1a4d14e67d4897"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3630d1c17587fe6de1a4d14e67d4897">&#9670;&nbsp;</a></span>dsc_multilevel_priority_queue_create()</h2>
+<a id="ac80529e9c265b96df60ec3a2b47c529f" name="ac80529e9c265b96df60ec3a2b47c529f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80529e9c265b96df60ec3a2b47c529f">&#9670;&nbsp;</a></span>dsc_multilevel_priority_queue_create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,12 +142,6 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>num_levels</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="multilevel__priority__queue_8h.html#aa65d967e936483015d72c7ebea684cbe">dsc_multilevel_priority_queue_compare_func</a>&#160;</td>
-          <td class="paramname"><em>compare_func</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -164,6 +156,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates the multilevel priority queue. </p>
+<p >This function creates the multilevel priority queue. If the free function is NULL, the data is not freed. If allocation fails, the function returns NULL. The number of levels is the number of levels in the multilevel priority queue.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_levels</td><td>Number of levels, must be greater than 0 </td></tr>
+    <tr><td class="paramname">free_func</td><td>Function pointer to free the data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dsc_multilevel_priority_queue_t* Pointer to the multilevel priority queue, NULL on failure </dd></dl>
 
 </div>
 </div>
@@ -182,6 +185,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dequeues the data from the multilevel priority queue. </p>
+<p >This function dequeues the data from the multilevel priority queue. The data is dequeued from the highest available level. If the multilevel priority queue is NULL, the function returns NULL.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">multilevel_priority_queue</td><td>Pointer to the multilevel priority queue </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void* Pointer to the data, NULL on failure </dd></dl>
 
 </div>
 </div>
@@ -217,6 +230,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enqueues the data into the multilevel priority queue. </p>
+<p >This function enqueues the data into the multilevel priority queue. The data is enqueued to the given level. If the multilevel priority queue is NULL, the function returns -1. If the data is NULL, the function returns -1. If the level is out of bounds, the function returns -1.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">multilevel_priority_queue</td><td>Pointer to the multilevel priority queue </td></tr>
+    <tr><td class="paramname">level</td><td>Level to enqueue the data </td></tr>
+    <tr><td class="paramname">data</td><td>Data to enqueue </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 0 on success, -1 on failure </dd></dl>
+
 </div>
 </div>
 <a id="a65060426f305ccbc7f8f67b53be1919b" name="a65060426f305ccbc7f8f67b53be1919b"></a>
@@ -235,6 +260,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Destroys the multilevel priority queue. </p>
+<p >This function frees the multilevel priority queue. The data is freed if the free function is not NULL.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">multilevel_priority_queue</td><td>Pointer to the multilevel priority queue </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a16bc7b2d87a4e19a0de9d7f79421aa6c" name="a16bc7b2d87a4e19a0de9d7f79421aa6c"></a>
@@ -252,6 +286,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Peeks the data from the multilevel priority queue. </p>
+<p >This function peeks the data from the multilevel priority queue. The data is peeked from the highest available level. If the multilevel priority queue is NULL, the function returns NULL.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">multilevel_priority_queue</td><td>Pointer to the multilevel priority queue </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void* Pointer to the data, NULL on failure </dd></dl>
 
 </div>
 </div>

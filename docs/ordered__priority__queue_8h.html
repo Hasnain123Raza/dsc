@@ -74,13 +74,17 @@ $(function() {
   <div class="headertitle"><div class="title">ordered_priority_queue.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="dynamic__list_8h_source.html">dynamic_list.h</a>&quot;</code><br />
+
+<p>Ordered priority queue.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="singly__linked__list_8h_source.html">singly_linked_list.h</a>&quot;</code><br />
 </div>
 <p><a href="ordered__priority__queue_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsc__ordered__priority__queue__t.html">dsc_ordered_priority_queue_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ordered priority queue structure.  <a href="structdsc__ordered__priority__queue__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -93,17 +97,26 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af044b705a897e16bb9ce27bc8fd1ba32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsc__ordered__priority__queue__t.html">dsc_ordered_priority_queue_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordered__priority__queue_8h.html#af044b705a897e16bb9ce27bc8fd1ba32">dsc_ordered_priority_queue_create</a> (<a class="el" href="ordered__priority__queue_8h.html#a19ca40d2374925429be1cdfa6f3adf17">dsc_ordered_priority_queue_compare_func</a> compare_func, <a class="el" href="ordered__priority__queue_8h.html#abcd474d3f6b8bb3de39b41a0ff969802">dsc_ordered_priority_queue_free_func</a> free_func)</td></tr>
+<tr class="memdesc:af044b705a897e16bb9ce27bc8fd1ba32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the ordered priority queue.  <a href="ordered__priority__queue_8h.html#af044b705a897e16bb9ce27bc8fd1ba32">More...</a><br /></td></tr>
 <tr class="separator:af044b705a897e16bb9ce27bc8fd1ba32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf19696ffaaeadaa56f693807c493bca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordered__priority__queue_8h.html#abf19696ffaaeadaa56f693807c493bca">dsc_ordered_priority_queue_free</a> (<a class="el" href="structdsc__ordered__priority__queue__t.html">dsc_ordered_priority_queue_t</a> *ordered_priority_queue)</td></tr>
+<tr class="memdesc:abf19696ffaaeadaa56f693807c493bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the ordered priority queue.  <a href="ordered__priority__queue_8h.html#abf19696ffaaeadaa56f693807c493bca">More...</a><br /></td></tr>
 <tr class="separator:abf19696ffaaeadaa56f693807c493bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bd0184f07c78868765858b3bc6e2c3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordered__priority__queue_8h.html#a4bd0184f07c78868765858b3bc6e2c3e">dsc_ordered_priority_queue_enqueue</a> (<a class="el" href="structdsc__ordered__priority__queue__t.html">dsc_ordered_priority_queue_t</a> *ordered_priority_queue, void *data)</td></tr>
+<tr class="memdesc:a4bd0184f07c78868765858b3bc6e2c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues the data to the ordered priority queue.  <a href="ordered__priority__queue_8h.html#a4bd0184f07c78868765858b3bc6e2c3e">More...</a><br /></td></tr>
 <tr class="separator:a4bd0184f07c78868765858b3bc6e2c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5addb06ee17f400b1e5aff741ca64b9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordered__priority__queue_8h.html#af5addb06ee17f400b1e5aff741ca64b9">dsc_ordered_priority_queue_dequeue</a> (<a class="el" href="structdsc__ordered__priority__queue__t.html">dsc_ordered_priority_queue_t</a> *ordered_priority_queue)</td></tr>
+<tr class="memdesc:af5addb06ee17f400b1e5aff741ca64b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dequeues the data from the ordered priority queue.  <a href="ordered__priority__queue_8h.html#af5addb06ee17f400b1e5aff741ca64b9">More...</a><br /></td></tr>
 <tr class="separator:af5addb06ee17f400b1e5aff741ca64b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e3e5d17193694b052f360c592dc4c36"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordered__priority__queue_8h.html#a5e3e5d17193694b052f360c592dc4c36">dsc_ordered_priority_queue_peek</a> (<a class="el" href="structdsc__ordered__priority__queue__t.html">dsc_ordered_priority_queue_t</a> *ordered_priority_queue)</td></tr>
+<tr class="memdesc:a5e3e5d17193694b052f360c592dc4c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks the data from the ordered priority queue.  <a href="ordered__priority__queue_8h.html#a5e3e5d17193694b052f360c592dc4c36">More...</a><br /></td></tr>
 <tr class="separator:a5e3e5d17193694b052f360c592dc4c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Ordered priority queue. </p>
+<p >This file contains the ordered priority queue. It is a linked list that contains the ordered elements. The enqueue operation is O(n). The dequeue operation is O(1). The peek operation is O(1).</p>
+<dl class="section author"><dt>Author</dt><dd>Hasnain Raza </dd></dl>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a19ca40d2374925429be1cdfa6f3adf17" name="a19ca40d2374925429be1cdfa6f3adf17"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19ca40d2374925429be1cdfa6f3adf17">&#9670;&nbsp;</a></span>dsc_ordered_priority_queue_compare_func</h2>
 
@@ -115,6 +128,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Function pointer to compare the data </p>
 
 </div>
 </div>
@@ -129,6 +143,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Function pointer to free the data </p>
 
 </div>
 </div>
@@ -159,6 +174,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates the ordered priority queue. </p>
+<p >This function creates the ordered priority queue. The compare function is used to prioritize the elements. The compare function should return 0 if the two elements have the same priority. The compare function should return a negative number if the first element has a lower priority than the second element. The compare function should return a positive number if the first element has a higher priority than the second element. If the compare function is NULL, the function returns NULL. If the free function is NULL, the data is not freed. If allocation fails, the function returns NULL.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">compare_func</td><td>Function pointer to compare the data, can not be NULL </td></tr>
+    <tr><td class="paramname">free_func</td><td>Function pointer to free the data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dsc_ordered_priority_queue_t* Pointer to the ordered priority queue, NULL on failure </dd></dl>
+
 </div>
 </div>
 <a id="af5addb06ee17f400b1e5aff741ca64b9" name="af5addb06ee17f400b1e5aff741ca64b9"></a>
@@ -176,6 +202,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dequeues the data from the ordered priority queue. </p>
+<p >This function dequeues the data from the ordered priority queue. If the ordered priority queue is NULL, the function returns NULL. If the data is NULL, the function returns NULL. If the ordered priority queue is empty, the function returns NULL. Otherwise, the function returns the data. This function is O(1).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordered_priority_queue</td><td>Pointer to the ordered priority queue, can not be NULL </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void* Pointer to the data, NULL on failure </dd></dl>
 
 </div>
 </div>
@@ -205,6 +241,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enqueues the data to the ordered priority queue. </p>
+<p >This function enqueues the data to the ordered priority queue. If the ordered priority queue is NULL, the function returns -1. If the data is NULL, the function returns -1. If the If two elements have the same priority, the data is enqueued to the end of the list. If the allocation fails, the function returns -1. Otherwise, the function returns 0. This function is O(n).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordered_priority_queue</td><td>Pointer to the ordered priority queue, can not be NULL </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the data, can not be NULL </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 0 on success, -1 on failure </dd></dl>
+
 </div>
 </div>
 <a id="abf19696ffaaeadaa56f693807c493bca" name="abf19696ffaaeadaa56f693807c493bca"></a>
@@ -223,6 +270,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Frees the ordered priority queue. </p>
+<p >This function frees the ordered priority queue. If the free function is not NULL, the data is freed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordered_priority_queue</td><td>Pointer to the ordered priority queue, can not be NULL </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5e3e5d17193694b052f360c592dc4c36" name="a5e3e5d17193694b052f360c592dc4c36"></a>
@@ -240,6 +296,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Peeks the data from the ordered priority queue. </p>
+<p >This function peeks the data from the ordered priority queue. If the ordered priority queue is NULL, the function returns NULL. If the data is NULL, the function returns NULL. If the ordered priority queue is empty, the function returns NULL. Otherwise, the function returns the data. This function is O(1).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordered_priority_queue</td><td>Pointer to the ordered priority queue, can not be NULL </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void* Pointer to the data, NULL on failure </dd></dl>
 
 </div>
 </div>
